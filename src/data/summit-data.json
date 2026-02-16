@@ -1,0 +1,478 @@
+{
+  "meta": {
+    "event": "India AI Impact Summit 2026",
+    "venue": "Bharat Mandapam, Pragati Maidan, New Delhi",
+    "dates": "February 16-20, 2026",
+    "organizers": ["MeitY (Ministry of Electronics & IT)", "NASSCOM"],
+    "mission": "IndiaAI Mission",
+    "area_sqm": 70000,
+    "halls": 7,
+    "arenas": 10,
+    "pavilions": 300,
+    "data_last_updated": "2026-02-17"
+  },
+
+  "headline_stats": [
+    { "value": "20+", "label": "Heads of State" },
+    { "value": "250,000+", "label": "Expected Visitors" },
+    { "value": "3,250+", "label": "Speakers" },
+    { "value": "700+", "label": "Sessions" },
+    { "value": "600+", "label": "Startups" },
+    { "value": "$68B+", "label": "Investment Committed" }
+  ],
+
+  "personas": {
+    "founder": { "label": "Startup Founder", "icon": "🚀", "color": "#FF6B35" },
+    "enterprise": { "label": "Enterprise Leader", "icon": "🏢", "color": "#2EC4B6" },
+    "developer": { "label": "Developer / Engineer", "icon": "⚡", "color": "#E040FB" },
+    "investor": { "label": "Investor / VC", "icon": "💰", "color": "#FFD166" },
+    "researcher": { "label": "Researcher / Academic", "icon": "🔬", "color": "#06D6A0" },
+    "policy": { "label": "Policy / Government", "icon": "⚖️", "color": "#118AB2" }
+  },
+
+  "interest_tags": [
+    { "id": "infra", "label": "AI Infrastructure & Compute", "icon": "🖥️" },
+    { "id": "models", "label": "Foundation Models & LLMs", "icon": "🧠" },
+    { "id": "governance", "label": "AI Governance & Safety", "icon": "🛡️" },
+    { "id": "startups", "label": "Startups & Innovation", "icon": "💡" },
+    { "id": "global", "label": "Global Partnerships", "icon": "🌍" },
+    { "id": "voice", "label": "Voice & Multilingual AI", "icon": "🗣️" },
+    { "id": "health", "label": "AI for Healthcare", "icon": "🏥" },
+    { "id": "creative", "label": "Creative AI & Media", "icon": "🎬" }
+  ],
+
+  "days": [
+    { "id": 1, "date": "2026-02-16", "date_short": "Feb 16", "weekday": "Sun", "title": "Inauguration & Expo Launch" },
+    { "id": 2, "date": "2026-02-17", "date_short": "Feb 17", "weekday": "Mon", "title": "Thematic Sessions & Compendium" },
+    { "id": 3, "date": "2026-02-18", "date_short": "Feb 18", "weekday": "Tue", "title": "Hackathons & Deep Dives" },
+    { "id": 4, "date": "2026-02-19", "date_short": "Feb 19", "weekday": "Wed", "title": "High-Level Summit & Macron Keynote" },
+    { "id": 5, "date": "2026-02-20", "date_short": "Feb 20", "weekday": "Thu", "title": "Summit Declaration & Closing" }
+  ],
+
+  "keynote_speakers": [
+    {
+      "name": "PM Narendra Modi",
+      "role": "Prime Minister, India",
+      "day": "Feb 16 & 19",
+      "topic": "India at forefront of AI transformation; invited global data to reside in India; tax holiday to 2047 for cloud providers; 15% Safe Harbour margin; $18B semiconductor projects",
+      "icon": "🇮🇳"
+    },
+    {
+      "name": "Sam Altman",
+      "role": "CEO, OpenAI",
+      "day": "Feb 19",
+      "topic": "India as full-stack AI leader; 100M+ weekly Indian ChatGPT users; Democratic AI framework (Access, Adoption, Agency); building AI in India, with India, for India",
+      "icon": "🤖"
+    },
+    {
+      "name": "Sundar Pichai",
+      "role": "CEO, Alphabet / Google",
+      "day": "Feb 19",
+      "topic": "Future of work; massive India infrastructure investments through 2030",
+      "icon": "🔍"
+    },
+    {
+      "name": "Dario Amodei",
+      "role": "CEO, Anthropic",
+      "day": "Feb 19",
+      "topic": "AI safety and governance; opened first India office in Bengaluru; India is 2nd-largest Claude market after US",
+      "icon": "🧪"
+    },
+    {
+      "name": "Demis Hassabis",
+      "role": "CEO, DeepMind",
+      "day": "Feb 19",
+      "topic": "Ethics of sentient-like models; future of work",
+      "icon": "🧬"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "President, France",
+      "day": "Feb 19",
+      "topic": "India-France bilateral AI cooperation; summit keynote",
+      "icon": "🇫🇷"
+    },
+    {
+      "name": "Brad Smith",
+      "role": "President, Microsoft",
+      "day": "Feb 19",
+      "topic": "AI infrastructure; ₹1.5 lakh crore India investment for data centres and AI training",
+      "icon": "☁️"
+    },
+    {
+      "name": "Michael Kremer",
+      "role": "Nobel Laureate (Economics)",
+      "day": "Feb 17",
+      "topic": "AI for Social Good — Impact That Works (J-PAL session with MIT)",
+      "icon": "🏅"
+    }
+  ],
+
+  "schedule": {
+    "day_1": [
+      { "time": "9:00-11:00 AM", "session": "Future of Employability in the Age of AI", "venue": "West Wing Room 4A, Bharat Mandapam", "speakers": "AI4India + CPRG roundtable", "tags": ["governance"], "is_highlight": false },
+      { "time": "9:30-10:25 AM", "session": "Role of Contextual Norms in Designing Better AI Systems", "venue": "L1 Meeting Room 17, Bharat Mandapam", "tags": ["governance"], "is_highlight": false },
+      { "time": "All day", "session": "AI for Road Safety: Data-Driven Solutions", "venue": "Bharat Mandapam", "tags": ["health", "governance"], "is_highlight": false },
+      { "time": "All day", "session": "Global AI Impact Challenges — Grand Finale Day 1", "venue": "Bharat Mandapam + Sushma Swaraj Bhawan", "speakers": "70 finalists from 60+ countries", "tags": ["startups"], "is_highlight": false },
+      { "time": "~5:00 PM", "session": "PM Modi Inaugurates India AI Impact Expo", "venue": "Main Hall, Bharat Mandapam", "speakers": "PM Modi — launched 12 foundation models; data reside in India", "tags": ["governance", "global"], "is_highlight": true },
+      { "time": "Evening", "session": "India's Journey from Tradition to Technology", "venue": "Bharat Mandapam", "tags": ["creative"], "is_highlight": false },
+      { "time": "All day", "session": "Kathavatar AI Film Screenings", "venue": "MIB Pavilion AI Theatre", "speakers": "5 AI short films: Language of Birds, Migoi, Uttarayan, The Barber's Secret, Yappasauras", "tags": ["creative"], "is_highlight": false }
+    ],
+    "day_2": [
+      { "time": "9:30 AM+", "session": "J-PAL: AI for Social Good — Impact That Works", "venue": "Bharat Mandapam", "speakers": "Michael Kremer (Nobel Laureate), Iqbal Dhaliwal (J-PAL/MIT), S. Krishnan (Secretary MeitY), Ziad Obermeyer (UC Berkeley), Maggie Johnson (Google.org), Abhishek Singh (IndiaAI Mission)", "tags": ["health", "governance"], "is_highlight": true },
+      { "time": "9:30-10:25 AM", "session": "MDB Financing for AI Initiatives", "venue": "Hall No. 16, Bharat Mandapam", "speakers": "World Bank + Gates Foundation; Antonio Zaballos (ADB), Dr. J. Ganesan (Govt of Haryana)", "tags": ["global", "infra"], "is_highlight": false },
+      { "time": "10:30-11:25 AM", "session": "Harnessing AI for Equitable Health Systems", "venue": "West Wing Room 4A", "speakers": "Mamta Murthi (VP, World Bank), Dr. Geetha Manjunath (Niramai), Dr. Karthik Adapa (WHO SEARO)", "tags": ["health"], "is_highlight": false },
+      { "time": "10:30-11:30 AM", "session": "The AI-Energy-Finance Trifecta: Future-Proofing India's Datacenters", "venue": "Room 10", "tags": ["infra"], "is_highlight": false },
+      { "time": "11:30-12:30 PM", "session": "Relevance of Life Skills Education in the Age of AI", "venue": "Hall 14.1", "tags": ["governance"], "is_highlight": false },
+      { "time": "During day", "session": "AI Compendium Release", "venue": "Bharat Mandapam", "speakers": "Casebooks on Health, Energy, Education, Agriculture, Gender, Disabilities", "tags": ["governance", "health"], "is_highlight": false },
+      { "time": "During day", "session": "Tata Bharat YUVAi Hackathon (Flagship)", "venue": "Bharat Mandapam", "speakers": "~2,000 students; voice-first AI in 9 languages", "tags": ["startups", "voice"], "is_highlight": false },
+      { "time": "During day", "session": "Global AI Impact Challenges — Awards Ceremony", "venue": "Bharat Mandapam + Sushma Swaraj Bhawan", "tags": ["startups"], "is_highlight": false },
+      { "time": "During day", "session": "PadhAI Conclave 2.0", "venue": "India Habitat Centre, Lodhi Road", "tags": ["governance"], "is_highlight": false }
+    ],
+    "day_3": [
+      { "time": "10:30-11:25 AM", "session": "How AI Will Reshape Global Development Beyond the SDGs", "venue": "Bharat Mandapam", "speakers": "UN ODET side event", "tags": ["global", "governance"], "is_highlight": false },
+      { "time": "3:00-5:00 PM", "session": "Discussion with Global Dialogue on AI Governance Co-Chairs", "venue": "UN House, 55 Lodhi Estate", "speakers": "H.E. Egriselda Lopez (El Salvador), H.E. Rein Tammsaar (Estonia)", "tags": ["governance", "global"], "is_highlight": false },
+      { "time": "Full day", "session": "Research Symposium on AI and its Impact", "venue": "Bharat Mandapam", "speakers": "IIIT Hyderabad partner; 3 tracks: big questions, research talks, Global South posters", "tags": ["models"], "is_highlight": false },
+      { "time": "During day", "session": "CPRG: Data for Development — Building AI in the Global South", "venue": "Bharat Mandapam", "tags": ["governance", "global"], "is_highlight": false },
+      { "time": "During day", "session": "All-Woman Hackathon (AI by HER)", "venue": "Bharat Mandapam", "tags": ["startups"], "is_highlight": true },
+      { "time": "During day", "session": "Lenovo LEAP AI Hackathon 2026", "venue": "Bharat Mandapam", "speakers": "100 undergraduate teams; India's national priorities", "tags": ["startups"], "is_highlight": false },
+      { "time": "During day", "session": "AI & Children's Safety and Wellbeing", "venue": "TBD", "speakers": "UN ODET", "tags": ["governance"], "is_highlight": false }
+    ],
+    "day_4": [
+      { "time": "Morning", "session": "Formal Opening Ceremony of Summit", "venue": "Main Plenary, Bharat Mandapam", "speakers": "PM Modi inaugural address", "tags": ["governance", "global"], "is_highlight": true },
+      { "time": "During day", "session": "Leaders' Plenary", "venue": "Bharat Mandapam", "speakers": "20+ heads of state: Modi, Macron, Lula da Silva, Guterres + 17 more", "tags": ["global", "governance"], "is_highlight": true },
+      { "time": "During day", "session": "CEO Roundtable", "venue": "Bharat Mandapam", "speakers": "PM Modi 1-on-1s with 35-40 corporate leaders including Mukesh Ambani", "tags": ["global"], "is_highlight": true },
+      { "time": "During day", "session": "Tech CEO Headliner Sessions", "venue": "Bharat Mandapam", "speakers": "Sundar Pichai (Alphabet), Sam Altman (OpenAI), Dario Amodei (Anthropic), Demis Hassabis (DeepMind), Brad Smith (Microsoft)", "tags": ["models", "governance", "infra"], "is_highlight": true },
+      { "time": "During day", "session": "Macron Keynote Address", "venue": "Bharat Mandapam", "speakers": "India-France bilateral AI cooperation", "tags": ["global", "governance"], "is_highlight": true },
+      { "time": "During day", "session": "Modi-Macron Joint Engagement", "venue": "Bharat Mandapam", "tags": ["global"], "is_highlight": false },
+      { "time": "During day", "session": "Shekhar Kapur Masterclass — Filmmaking in the AI Era", "venue": "MIB Pavilion", "tags": ["creative"], "is_highlight": false },
+      { "time": "During day", "session": "Adobe: The Future of Film", "venue": "MIB Pavilion", "tags": ["creative"], "is_highlight": false },
+      { "time": "During day", "session": "GPAI Council engagement begins", "venue": "Bharat Mandapam", "tags": ["governance", "global"], "is_highlight": false }
+    ],
+    "day_5": [
+      { "time": "9:30-10:25 AM", "session": "AI for Agriculture", "venue": "L2 Auditorium 1, Bharat Mandapam", "tags": ["health", "governance"], "is_highlight": false },
+      { "time": "9:30-10:25 AM", "session": "Democratizing AI Compute & Digital Data Infrastructure", "venue": "Room 19, Bharat Mandapam", "speakers": "Sangbu Kim (VP, World Bank), Saurabh Garg (Secretary, MoSPI)", "tags": ["infra", "global"], "is_highlight": false },
+      { "time": "2:30-3:30 PM", "session": "AI for Inclusive and Resilient Food Systems", "venue": "Room 18, Bharat Mandapam", "speakers": "Mathias Cormann (OECD SG), Harry Verweij (Netherlands AI Envoy), Dejan Jakovljevic (CIO, FAO)", "tags": ["health", "global"], "is_highlight": true },
+      { "time": "3:30-4:25 PM", "session": "Small AI for Big Impact", "venue": "Bharat Mandapam", "tags": ["models"], "is_highlight": false },
+      { "time": "During day", "session": "CPRG: Reimagining Education in the Age of AI", "venue": "Sushma Swaraj Bhawan", "speakers": "Jitin Prasada (MoS), Anne Neuberger (Fmr US Deputy NSA), Sanjeev Bikhchandani (Info Edge), Gokul Subramaniam (Intel India)", "tags": ["governance"], "is_highlight": false },
+      { "time": "During day", "session": "UN ODET: The Role of Science in International AI Governance", "venue": "TBD", "tags": ["governance", "global"], "is_highlight": false },
+      { "time": "During day", "session": "Hornbill Dream — Where Tradition Meets Technology", "venue": "Bharat Mandapam", "tags": ["creative"], "is_highlight": false },
+      { "time": "During day", "session": "GPAI Council Meetings", "venue": "Bharat Mandapam", "tags": ["governance", "global"], "is_highlight": false },
+      { "time": "During day", "session": "Leaders' Declaration Adopted", "venue": "Bharat Mandapam", "speakers": "Collective commitments; shared roadmap for global AI governance", "tags": ["governance", "global"], "is_highlight": true }
+    ]
+  },
+
+  "companies_global": [
+    { "name": "OpenAI", "key_person": "Sam Altman (CEO)", "showcase": "India 2nd-largest market; 100M+ weekly users; Democratic AI; India office in Delhi (Aug 2025)", "tags": ["models", "global"], "website": "openai.com", "founded": 2015, "hq": "San Francisco" },
+    { "name": "Google / Alphabet", "key_person": "Sundar Pichai (CEO), Demis Hassabis (CEO, DeepMind)", "showcase": "₹1.25 lakh crore for 1 GW AI hub in Vizag; future of work sessions", "tags": ["infra", "global"], "website": "google.com", "founded": 1998, "hq": "Mountain View" },
+    { "name": "Anthropic", "key_person": "Dario Amodei (CEO)", "showcase": "First India office (Bengaluru); India = 2nd-largest Claude market; hiring engineering, go-to-market, policy", "tags": ["models", "governance"], "website": "anthropic.com", "founded": 2021, "hq": "San Francisco" },
+    { "name": "Microsoft", "key_person": "Brad Smith (President)", "showcase": "₹1.5 lakh crore for data centres + AI training in India", "tags": ["infra", "global"], "website": "microsoft.com", "founded": 1975, "hq": "Redmond" },
+    { "name": "NVIDIA (via Yotta)", "key_person": "Jensen Huang (withdrew Feb 15)", "showcase": "Major GPU expansion in India via Yotta partnership; scaling from ~10,000 GPUs", "tags": ["infra"], "website": "nvidia.com", "founded": 1993, "hq": "Santa Clara" },
+    { "name": "AMD", "key_person": "—", "showcase": "Helios platform with TCS; MI455X GPUs, EPYC Venice CPUs, Pensando Vulcano NICs, ROCm; 200 MW blueprint", "tags": ["infra"], "website": "amd.com", "founded": 1969, "hq": "Santa Clara" },
+    { "name": "Qualcomm", "key_person": "Cristiano Amon (CEO), Sahil Arora (VP India)", "showcase": "Hybrid AI deployment; sovereign AI on-device models", "tags": ["infra", "models"], "website": "qualcomm.com", "founded": 1985, "hq": "San Diego" },
+    { "name": "Fujitsu", "key_person": "—", "showcase": "Japan Pavilion: LLM Takane, MONAKA processor (Arm-based, high perf/low power), quantum computer mock-up", "tags": ["models", "infra"], "website": "fujitsu.com", "founded": 1935, "hq": "Tokyo" },
+    { "name": "Adobe", "key_person": "Shantanu Narayen (CEO)", "showcase": "Kathavatar AI films; Future of Film session; USISPF co-chair", "tags": ["creative"], "website": "adobe.com", "founded": 1982, "hq": "San Jose" },
+    { "name": "Cisco", "key_person": "Harish Krishnan (MD India)", "showcase": "Krishi Mangal: sovereign AI programme for 44,000 women farmers", "tags": ["governance", "global"], "website": "cisco.com", "founded": 1984, "hq": "San Jose" },
+    { "name": "Scale AI", "key_person": "Alexandr Wang (CEO)", "showcase": "AI data infrastructure", "tags": ["infra", "models"], "website": "scale.com", "founded": 2016, "hq": "San Francisco" },
+    { "name": "Cloudflare", "key_person": "Matthew Prince (CEO)", "showcase": "AI infrastructure", "tags": ["infra"], "website": "cloudflare.com", "founded": 2009, "hq": "San Francisco" },
+    { "name": "Amazon / AWS", "key_person": "—", "showcase": "₹2.9 lakh crore by 2030; cloud AI; WAVES sessions", "tags": ["infra", "creative"], "website": "aws.amazon.com", "founded": 1994, "hq": "Seattle" },
+    { "name": "Intel", "key_person": "Gokul Subramaniam (India President)", "showcase": "AI infrastructure + chips in India", "tags": ["infra"], "website": "intel.com", "founded": 1968, "hq": "Santa Clara" },
+    { "name": "Mistral AI", "key_person": "Arthur Mensch (CEO)", "showcase": "European AI leadership; open-weight LLMs", "tags": ["models"], "website": "mistral.ai", "founded": 2023, "hq": "Paris" },
+    { "name": "Accenture", "key_person": "Julie Sweet (Chair & CEO)", "showcase": "Global South AI positioning", "tags": ["global"], "website": "accenture.com", "founded": 1989, "hq": "Dublin" },
+    { "name": "Ericsson", "key_person": "Borje Ekholm (CEO), Erik Ekudden (CTO)", "showcase": "AI infrastructure, telecom AI", "tags": ["infra"], "website": "ericsson.com", "founded": 1876, "hq": "Stockholm" },
+    { "name": "Vertiv", "key_person": "Gio Albertazzi (CEO)", "showcase": "Gigawatt-scale AI factory infrastructure", "tags": ["infra"], "website": "vertiv.com", "founded": 2016, "hq": "Westerville, OH" },
+    { "name": "FedEx", "key_person": "Raj Subramaniam (CEO)", "showcase": "USISPF co-chair; AI in logistics", "tags": ["global"], "website": "fedex.com", "founded": 1971, "hq": "Memphis" }
+  ],
+
+  "companies_indian": [
+    { "name": "Reliance / Jio", "key_person": "Mukesh Ambani (Chairman), Akash Ambani (Chairman Jio), Gaurav Aggarwal (Chief AI Scientist)", "showcase": "Jio AI Stack, Jio Sanskriti AI, Jio Arogya AI, Jio Shiksha, Jio AI Home; fast-track AI hiring", "tags": ["models", "health", "creative"], "website": "jio.com", "founded": 2007, "hq": "Mumbai" },
+    { "name": "TCS", "key_person": "Natarajan Chandrasekaran (Chairman, Tata Sons)", "showcase": "HyperVault AI + AMD Helios; 200 MW data centre blueprint; YUVAi Hackathon (2,000 students)", "tags": ["infra"], "website": "tcs.com", "founded": 1968, "hq": "Mumbai" },
+    { "name": "Infosys", "key_person": "Salil Parekh (CEO)", "showcase": "Enterprise AI leadership", "tags": ["infra"], "website": "infosys.com", "founded": 1981, "hq": "Bengaluru" },
+    { "name": "Wipro", "key_person": "Ivana Bartoletti (Global Chief Privacy & AI Governance Officer)", "showcase": "AI governance; India as AI talent hub", "tags": ["governance"], "website": "wipro.com", "founded": 1945, "hq": "Bengaluru" },
+    { "name": "Tech Mahindra", "key_person": "Sham Arora (CTO)", "showcase": "India AI talent factory; Maker's Lab foundation model for Indic languages", "tags": ["models", "voice"], "website": "techmahindra.com", "founded": 1986, "hq": "Pune" },
+    { "name": "HCLTech", "key_person": "— (Hall 4, Booth 4.5)", "showcase": "The Best AI, Born in India", "tags": ["infra"], "website": "hcltech.com", "founded": 1991, "hq": "Noida" },
+    { "name": "Yotta Data Services", "key_person": "Sunil Gupta (CEO)", "showcase": "NVIDIA GPU expansion: multifold capacity from ~10,000 GPUs", "tags": ["infra"], "website": "yotta.com", "founded": 2019, "hq": "Mumbai" },
+    { "name": "Neysa", "key_person": "—", "showcase": "Blackstone-led $1.2B investment; deploying 20,000+ GPUs in India", "tags": ["infra", "startups"], "website": "neysa.ai", "founded": 2023, "hq": "Mumbai" },
+    { "name": "Palo Alto Networks", "key_person": "Nikesh Arora (CEO)", "showcase": "AI cybersecurity", "tags": ["governance"], "website": "paloaltonetworks.com", "founded": 2005, "hq": "Santa Clara" },
+    { "name": "KPMG India", "key_person": "—", "showcase": "Official Knowledge Partner; enterprise AI frameworks and sector case studies", "tags": ["governance"], "website": "kpmg.com/in", "hq": "Mumbai" },
+    { "name": "EY", "key_person": "— (Hall 1, Booth 1.7)", "showcase": "Scout robot: digital twins + edge AI for autonomous industrial inspection", "tags": ["infra", "creative"], "website": "ey.com", "founded": 1989, "hq": "London" }
+  ],
+
+  "foundation_models": [
+    { "id": 1, "developer": "Sarvam AI", "model_name": "Sarvam Vision / Bulbul v3 / Sarvam Edge", "parameters": "120B (in progress)", "founded": 2023, "hq": "Bengaluru", "funding": "$53.8M (Lightspeed, Peak XV, Khosla)", "key_people": "Pratyush Kumar (CEO), Vivek Raghavan (Co-founder)", "focus": "Multilingual voice-first AI; outperformed Gemini/ChatGPT on Indic benchmarks; offline on-device AI", "tags": ["voice", "models"] },
+    { "id": 2, "developer": "BharatGen (IIT Bombay)", "model_name": "Param2", "parameters": "17B (Mixture-of-Experts)", "founded": null, "hq": "Mumbai", "funding": "₹1,200 crore (public)", "key_people": "Rishi Bal (CEO)", "focus": "22-language sovereign model; trained on Bharat Data Sagar dataset", "tags": ["models", "global"] },
+    { "id": 3, "developer": "Fractal Analytics", "model_name": "Large Reasoning Model", "parameters": "N/A", "founded": 2000, "hq": "Mumbai / New York", "funding": "$693M+ (TPG; IPO Feb 2026)", "key_people": null, "focus": "India's first reasoning model; STEM, medical diagnostics, analytics", "tags": ["models", "health"] },
+    { "id": 4, "developer": "Tech Mahindra Maker's Lab", "model_name": "Indic Foundation Model", "parameters": "N/A", "founded": null, "hq": "Pune", "funding": "Corporate-funded", "key_people": "Sham Arora (CTO)", "focus": "Optimized for Indic languages; agentic AI platform for e-governance", "tags": ["voice", "governance"] },
+    { "id": 5, "developer": "Avataar.ai", "model_name": "AI Avatar Library", "parameters": "N/A", "founded": 2014, "hq": "Bengaluru", "funding": "$55.5M (Tiger Global, Peak XV)", "key_people": null, "focus": "Fine-tuned for Indian languages in agriculture, healthcare, governance", "tags": ["creative", "health"] },
+    { "id": 6, "developer": "Gnani AI", "model_name": "Voice-First Foundation Model", "parameters": "N/A", "founded": 2016, "hq": "Bengaluru", "funding": "$7.72M (Info Edge)", "key_people": null, "focus": "Voice AI, speech processing for Indian languages", "tags": ["voice"] },
+    { "id": 7, "developer": "Krutrim (Ola AI)", "model_name": "Krutrim 2", "parameters": "12B", "founded": 2023, "hq": "Bengaluru", "funding": "$50M+ (Matrix; $1B valuation)", "key_people": "Bhavish Aggarwal (Founder)", "focus": "22+ Indian languages; India's first AI unicorn", "tags": ["models", "voice"] },
+    { "id": 8, "developer": "Soket AI Labs", "model_name": "Open-source multilingual LLM", "parameters": "120B", "founded": 2019, "hq": "Gurugram", "funding": "Undisclosed + IndiaAI GPUs", "key_people": "Abhishek Upperwal (CEO)", "focus": "Defence, healthcare, education; 22+ languages", "tags": ["models", "global"] },
+    { "id": 9, "developer": "Gan AI", "model_name": "Video Generation Foundation Model", "parameters": "N/A", "founded": 2021, "hq": "Mountain View / Noida", "funding": "$5.25M (Surge/Sequoia)", "key_people": "Suvrat Bhooshan (Founder)", "focus": "Personalized video at scale", "tags": ["creative"] },
+    { "id": 10, "developer": "GenLoop", "model_name": "Indic LLM", "parameters": "N/A", "founded": 2023, "hq": "Santa Clara", "funding": "$300K seed + ₹2.61 crore (IndiaAI)", "key_people": "Ayush Gupta (Founder)", "focus": "LLMs for 1.5B people; met PM Modi Jan 2026", "tags": ["models", "voice"] },
+    { "id": 11, "developer": "ZenteiQ Aitech", "model_name": "Engineering AI Foundation Model", "parameters": "8B", "founded": 2022, "hq": "Bangalore", "funding": "₹206.49 crore (~$24M, IndiaAI) + $200K Google Cloud TPU", "key_people": null, "focus": "Physics-based AI; materials science, engineering design", "tags": ["models", "infra"] },
+    { "id": 12, "developer": "Shodh AI", "model_name": "Materials Science Foundation Model", "parameters": "7B", "founded": null, "hq": null, "funding": "₹9.40 crore (IndiaAI)", "key_people": null, "focus": "Lab automation, novel materials (alloys, battery components)", "tags": ["models"] },
+    { "id": 13, "developer": "Intellihealth (NeuroDX)", "model_name": "EEG Analysis Foundation Model", "parameters": "N/A", "founded": null, "hq": null, "funding": "IndiaAI Mission", "key_people": null, "focus": "Neurological detection, brain-computer interfaces", "tags": ["health"], "note": "May be Cohort 2.0 expansion" }
+  ],
+
+  "deals_and_investments": [
+    { "deal": "Big Tech Combined (Google + Microsoft + Amazon)", "amount": "$68B+", "detail": "AI and cloud infrastructure in India through 2030" },
+    { "deal": "Blackstone + Neysa", "amount": "$1.2B total", "detail": "$600M equity + $600M debt; deploying 20,000+ GPUs; co-investors: Teachers' Venture Growth, TVS Capital, 360 ONE, Nexus" },
+    { "deal": "IndiaAI Mission Budget", "amount": "~$1.2B (₹10,372 crore)", "detail": "38,000+ GPUs, 1,050 TPUs at subsidised rates; separate 3,000 next-gen GPU cluster for sovereign/strategic use" },
+    { "deal": "India State-Backed VC Fund", "amount": "$1.1B", "detail": "For AI and advanced manufacturing startups" },
+    { "deal": "Semiconductor Projects", "amount": "$18B approved", "detail": "Domestic chip supply chain buildout" },
+    { "deal": "Microsoft India Investment", "amount": "₹1.5 lakh crore", "detail": "Data centres and AI training" },
+    { "deal": "Amazon India Investment", "amount": "₹2.9 lakh crore", "detail": "Cloud infrastructure and AI-driven digitization by 2030" },
+    { "deal": "Google India Investment", "amount": "₹1.25 lakh crore", "detail": "1 GW AI hub in Vizag" },
+    { "deal": "AMD + TCS Helios", "amount": "Undisclosed", "detail": "Rack-scale AI infrastructure using MI455X GPUs, EPYC Venice, ROCm; 200 MW data centre blueprint" },
+    { "deal": "NVIDIA + Yotta", "amount": "Undisclosed", "detail": "Multifold GPU capacity expansion from ~10,000 GPUs" },
+    { "deal": "C2i Series A", "amount": "$15M", "detail": "Data center power solutions; backed by Peak XV, Yali Deeptech, TDK Ventures" }
+  ],
+
+  "governance_sutras": [
+    { "num": 1, "name": "Trust is the Foundation", "icon": "🤝" },
+    { "num": 2, "name": "People First", "icon": "👤" },
+    { "num": 3, "name": "Innovation over Restraint", "icon": "🚀" },
+    { "num": 4, "name": "Fairness & Equity", "icon": "⚖️" },
+    { "num": 5, "name": "Accountability", "icon": "📋" },
+    { "num": 6, "name": "Understandable by Design", "icon": "💡" },
+    { "num": 7, "name": "Safety, Resilience & Sustainability", "icon": "🛡️" }
+  ],
+
+  "seven_chakras": [
+    { "num": 1, "name": "Human Capital", "focus": "Workforce skilling, reskilling, managing AI-driven job transitions" },
+    { "num": 2, "name": "Inclusion for Social Empowerment", "focus": "AI systems accommodating diverse needs, identities, and experiences" },
+    { "num": 3, "name": "Safe & Trusted AI", "focus": "Safety, governance frameworks, ethical use, data protection" },
+    { "num": 4, "name": "Science", "focus": "AI for scientific discovery and research" },
+    { "num": 5, "name": "Resilience", "focus": "Climate resilience, disaster response, sustainable development" },
+    { "num": 6, "name": "Innovation & Efficiency", "focus": "Enterprise AI, automation, industrial innovation" },
+    { "num": 7, "name": "Democratizing AI Resources", "focus": "Affordability, compute access, AI infrastructure for all nations" }
+  ],
+
+  "must_visit_by_persona": {
+    "founder": [
+      { "rank": 1, "name": "Startup Pavilion (600+ startups)", "why": "Direct pathway to investors; 600+ peers; see what's working in Indian AI" },
+      { "rank": 2, "name": "Global AI Impact Challenges Finale", "why": "70 finalist teams from 60+ countries; pre-vetted innovations; networking goldmine" },
+      { "rank": 3, "name": "Sarvam AI Booth", "why": "See India's most-funded AI startup demo Bulbul v3, Sarvam Edge (offline AI); learn their go-to-market" },
+      { "rank": 4, "name": "French Pavilion (Hall 14)", "why": "29 companies including Capgemini, Dassault; cross-border partnership opportunities" },
+      { "rank": 5, "name": "WAVES Creators Corner", "why": "51 MediaTech/AVGC-XR startups; network with creative AI founders" },
+      { "rank": 6, "name": "IndiaAI Compute Portal Info", "why": "Access 38,000 GPUs at subsidised rates (under ₹100/hr vs ₹200+ globally)" },
+      { "rank": 7, "name": "Jio AI Pavilion", "why": "Jio is fast-track hiring AI talent — potential partnership or employment pipeline" },
+      { "rank": 8, "name": "New Gold Rush Investor Panel", "why": "Investing in India's AI-Powered Gaming Future — direct VC access" },
+      { "rank": 9, "name": "Neysa/Blackstone Booth", "why": "$1.2B freshly funded AI compute infra — potential customer or partner" },
+      { "rank": 10, "name": "AI by HER Challenge Showcase", "why": "Women entrepreneur finalists; prizes up to ₹2.50 crore; partnership opportunities" }
+    ],
+    "enterprise": [
+      { "rank": 1, "name": "EY Booth (Scout Robot)", "why": "Digital twins + edge AI for autonomous industrial inspection; directly applicable to manufacturing" },
+      { "rank": 2, "name": "AMD-TCS Helios Demo", "why": "Rack-scale AI infrastructure; 200 MW blueprint; enterprise-grade AI compute" },
+      { "rank": 3, "name": "KPMG (Knowledge Partner)", "why": "Enterprise AI adoption frameworks and sector-specific case studies" },
+      { "rank": 4, "name": "French Pavilion Enterprise Zone", "why": "Air Liquide, ENGIE, Schneider Electric, TotalEnergies — industrial AI at scale" },
+      { "rank": 5, "name": "Jio AI Pavilion", "why": "Jio AI Stack (enterprise intelligence), Jio Arogya (healthcare AI), Jio Shiksha (education AI)" },
+      { "rank": 6, "name": "Adobe Content Creation Hub", "why": "AI-led enterprise content creation at scale" },
+      { "rank": 7, "name": "Cisco Booth", "why": "Krishi Mangal sovereign AI programme; enterprise AI democratization" },
+      { "rank": 8, "name": "AI Compendium Release (Feb 17)", "why": "Government casebooks documenting real-world AI applications — procurement intelligence" },
+      { "rank": 9, "name": "Qualcomm Booth", "why": "Hybrid AI deployment models for sovereign AI in enterprise" },
+      { "rank": 10, "name": "Innovation & Efficiency Chakra Zone", "why": "Enterprise-grade AI solution demos, automation, productivity tools" }
+    ],
+    "developer": [
+      { "rank": 1, "name": "BharatGen / IIT Bombay Booth", "why": "Live demo of Param2 (17B-param, 22 languages); open-source multilingual AI" },
+      { "rank": 2, "name": "Sarvam AI Booth", "why": "Sarvam Vision, Bulbul v3, Sarvam Edge (offline AI on devices); open-source 120B model coming" },
+      { "rank": 3, "name": "IndiaAI Compute Portal", "why": "Sign up for subsidised GPU access: 38,000 GPUs + 1,050 TPUs at under ₹100/hr" },
+      { "rank": 4, "name": "AI Immersive Theatre (MIB Pavilion)", "why": "270-degree projection with AI-powered interactive narratives — see spatial AI in action" },
+      { "rank": 5, "name": "WAVES Creators Corner", "why": "Zero-Touch Autonomous Newsroom, AI podcast studio, voice cloning demos — bleeding-edge creative AI" },
+      { "rank": 6, "name": "Fujitsu (Japan Pavilion)", "why": "MONAKA processor demo (next-gen Arm); quantum computer mock-up; LLM Takane" },
+      { "rank": 7, "name": "All-Woman Hackathon (Feb 18)", "why": "Participate or spectate; hands-on coding opportunity" },
+      { "rank": 8, "name": "Lenovo LEAP AI Hackathon", "why": "100 undergraduate teams building AI solutions; hackathon networking" },
+      { "rank": 9, "name": "Yesgnome/Sketly AI Demo", "why": "AI art-generation for game studios with proprietary style-training" },
+      { "rank": 10, "name": "Democratizing AI Resources Chakra Zone", "why": "Open-source projects, compute tools, developer-focused exhibits" }
+    ],
+    "investor": [
+      { "rank": 1, "name": "Startup Pavilion (600+ startups)", "why": "Dedicated investor pathway; curated deal flow from 600+ startups" },
+      { "rank": 2, "name": "Global AI Impact Challenges Finale", "why": "70 pre-vetted finalist teams from 4,650+ applications; curated pipeline" },
+      { "rank": 3, "name": "Gaming Startup Showcase", "why": "Yesgnome, Metasports/Hitwicket (18M users), Koyozo — hot vertical" },
+      { "rank": 4, "name": "New Gold Rush Panel", "why": "Investing in AI-Powered Gaming Future — peer VC insights" },
+      { "rank": 5, "name": "Sarvam AI Booth", "why": "India's breakout AI startup (Lightspeed, Khosla backed); 120B model" },
+      { "rank": 6, "name": "WAVES Creators Corner", "why": "51 AVGC-XR/MediaTech startups — emerging sector deal flow" },
+      { "rank": 7, "name": "AI by HER Finalists", "why": "Women-led AI startups; prizes up to ₹2.50 crore; pre-vetted quality" },
+      { "rank": 8, "name": "French Pavilion", "why": "29 companies for cross-border co-investment scouting" },
+      { "rank": 9, "name": "KPMG Insights Hub", "why": "Market intelligence, sector AI adoption data, India AI landscape" },
+      { "rank": 10, "name": "Innovation & Efficiency Chakra Zone", "why": "Enterprise-ready AI startups with demonstrated ROI" }
+    ],
+    "researcher": [
+      { "rank": 1, "name": "BharatGen / IIT Bombay Booth", "why": "Param2 model architecture details; Mixture-of-Experts; multilingual research" },
+      { "rank": 2, "name": "J-PAL Session: AI for Social Good", "why": "Rigorous evaluations across education, health, labor, climate by affiliated researchers" },
+      { "rank": 3, "name": "AI Compendium Release (Feb 17)", "why": "Sector-by-sector documentation of real-world AI deployments — key reference document" },
+      { "rank": 4, "name": "Science Chakra Zone", "why": "Frontier AI research, international collaboration, compute resources" },
+      { "rank": 5, "name": "Fractal Analytics Booth", "why": "India's first large reasoning model — novel architecture for STEM/medical" },
+      { "rank": 6, "name": "AIRAWAT / National Supercomputing Mission", "why": "India's premier AI supercomputer; 40+ petaflops across IITs, IISERs, research labs" },
+      { "rank": 7, "name": "World Bank Session (Feb 17)", "why": "AI for equitable health systems — evidence-based policy research" },
+      { "rank": 8, "name": "UN ODET Side Events", "why": "Scientific evidence in AI governance; children's safety; post-SDG frameworks" },
+      { "rank": 9, "name": "Fujitsu (Japan Pavilion)", "why": "MONAKA processor architecture; quantum computing; LLM Takane internals" },
+      { "rank": 10, "name": "Gnani AI / Voice-First Models", "why": "Novel voice AI architectures optimized for Indian languages" }
+    ],
+    "policy": [
+      { "rank": 1, "name": "India AI Governance Guidelines Sessions", "why": "7 governance sutras; new institutional framework (AI Governance Group, Safety Institute)" },
+      { "rank": 2, "name": "Safe & Trusted AI Chakra Zone", "why": "Governance gap analysis, international oversight frameworks" },
+      { "rank": 3, "name": "UN ODET Events", "why": "Children's safety, scientific evidence in governance, AI reshaping global development" },
+      { "rank": 4, "name": "CPRG Policy Dialogues", "why": "Employability, education, data governance, institutional transformation" },
+      { "rank": 5, "name": "Union Ministry Pavilions", "why": "Government AI deployments across agriculture, healthcare, education, justice" },
+      { "rank": 6, "name": "Country Pavilions (13 nations)", "why": "International governance frameworks; bilateral cooperation models" },
+      { "rank": 7, "name": "Bihar State Pavilion", "why": "State-level AI policy launch; regional implementation case study" },
+      { "rank": 8, "name": "World Bank / ADB Sessions", "why": "AI for economic growth, compute infrastructure access, health systems" },
+      { "rank": 9, "name": "IndiaAI Safety Institute Info", "why": "New risk assessment and incident analysis body — regulatory roadmap" },
+      { "rank": 10, "name": "Daily Pioneer/Legal Framework Sessions", "why": "Beyond the IT Act — advancing India's AI regulatory framework" }
+    ]
+  },
+
+  "country_pavilions": [
+    { "country": "France", "flag": "🇫🇷", "hall": "Hall 14", "size_sqm": 436, "companies_count": 29, "companies_named": ["Capgemini", "Dassault Systemes", "Air Liquide", "ENGIE", "Schneider Electric", "TotalEnergies", "Atos", "Sopra Steria", "Valeo", "CMA CGM", "Safran.AI", "Prisme.ai", "Agreenculture", "AFD", "Bull", "INFOTEL", "TNP Consultants", "SYSTRA", "Axon", "Brad Technology", "France Datacenter", "Soufflet Malt Alwar"], "highlight": "Largest international pavilion; President Macron delivering keynote Feb 19-20" },
+    { "country": "Japan", "flag": "🇯🇵", "hall": "TBC", "companies_named": ["Fujitsu"], "highlight": "LLM Takane, MONAKA processor (Arm-based, high perf/low power), quantum computer mock-up" },
+    { "country": "United Kingdom", "flag": "🇬🇧", "hall": "TBC", "highlight": "Deputy PM David Lammy; AI Minister Kanishka Narayan; announcing AI4D Observatory" },
+    { "country": "Australia", "flag": "🇦🇺", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Germany", "flag": "🇩🇪", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Italy", "flag": "🇮🇹", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Russia", "flag": "🇷🇺", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Netherlands", "flag": "🇳🇱", "hall": "TBC", "highlight": "PM Dick Schoof attending as head of state" },
+    { "country": "Switzerland", "flag": "🇨🇭", "hall": "TBC", "highlight": "President Guy Parmelin attending" },
+    { "country": "Serbia", "flag": "🇷🇸", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Estonia", "flag": "🇪🇪", "hall": "TBC", "highlight": "President attending as head of state" },
+    { "country": "Tajikistan", "flag": "🇹🇯", "hall": "TBC", "highlight": "Country pavilion confirmed" },
+    { "country": "Africa (Multi-nation)", "flag": "🌍", "hall": "TBC", "highlight": "Multi-nation pavilion representing African nations" }
+  ],
+
+  "venue": {
+    "main_venue": "Bharat Mandapam, Pragati Maidan, New Delhi",
+    "total_area_sqm": 390000,
+    "expo_area_sqm": 70000,
+    "convention_capacity": 7000,
+    "halls": [
+      { "hall": "Hall 1", "floors": 2, "known_occupant": "EY (Scout Robot)", "booth": "1.7 (Ground)", "theme": "Enterprise / Consulting" },
+      { "hall": "Hall 2", "floors": 2, "known_occupant": "Unknown", "booth": null, "theme": null },
+      { "hall": "Hall 3", "floors": 2, "known_occupant": "Synopsys", "booth": "3F.16 (First Floor)", "theme": "Technology / Semiconductor" },
+      { "hall": "Hall 4", "floors": 2, "known_occupant": "HCLTech", "booth": "4.5", "theme": "IT Services / Enterprise" },
+      { "hall": "Hall 5", "floors": 2, "known_occupant": "Bihar State Pavilion", "booth": "Stalls 8 & 12 (Section 5-F, Ground)", "theme": "State Government / Regional" },
+      { "hall": "Hall 6", "floors": 1, "known_occupant": "Unknown", "booth": null, "theme": null },
+      { "hall": "Hall 14", "floors": 2, "known_occupant": "France Pavilion (29 companies) + Atos", "booth": "14.5E (Ground)", "theme": "Country Pavilions / International" }
+    ],
+    "booth_numbering": "Hall.BoothNumber (e.g. 1.7 = Hall 1, Booth 7). First floor: HallF.BoothNumber (e.g. 3F.16). Sub-sections: letters (e.g. 5-F)",
+    "entry_gates": [
+      { "gate": "Gate 4", "hours": "7:30 AM – 2:00 PM", "access": "Car/cab drop-off; shuttle pick-up", "best_for": "Morning arrivals" },
+      { "gate": "Gate 7", "hours": "After 2:00 PM only", "access": "Walk-in via Business Plaza", "best_for": "Afternoon arrivals" },
+      { "gate": "Gate 10", "hours": "Full day", "access": "Pragati Maidan Metro (Blue Line)", "best_for": "Metro commuters", "recommended": true }
+    ],
+    "shuttle_routes": [
+      "Purana Qila Parking → Gate 4",
+      "Zoo Parking → Gate 4",
+      "JLN Stadium → Gate 4",
+      "Bhairo Mandir Parking → NO shuttle (media only)"
+    ],
+    "other_venues": [
+      { "name": "Sushma Swaraj Bhawan", "focus": "Startups, student innovation, youth engagement", "hours": "9:30 AM – 6:00 PM" },
+      { "name": "Ambedkar Bhavan", "focus": "Policy, governance, legal frameworks, AI safety, cybersecurity" },
+      { "name": "India Habitat Centre, Lodhi Road", "focus": "PadhAI Conclave 2.0 (education reform)" },
+      { "name": "UN House, 55 Lodhi Estate", "focus": "UN ODET side events on AI governance" }
+    ],
+    "logistics": {
+      "registration": "Free. Entry via DigiYatra or QR code from India AI Impact Summit app",
+      "feb_16": "Invite-only (inauguration)",
+      "feb_17_to_20": "Open to all registered attendees",
+      "expo_hours": "10:00 AM – 6:00 PM",
+      "session_hours": "9:30 AM – 6:00 PM",
+      "transport": "Golf carts available for internal transport",
+      "parking": "Limited; public transport strongly recommended"
+    }
+  },
+
+  "challenge_finalists": {
+    "ai_for_all": {
+      "name": "AI for ALL: Global Impact Challenge",
+      "applications": "1,350+",
+      "countries": "60+",
+      "finalists": 20,
+      "prize": "Up to INR 2.50 crore",
+      "focus_areas": ["healthcare", "agriculture", "climate resilience", "governance", "education", "financial inclusion"]
+    },
+    "ai_by_her": {
+      "name": "AI by HER: Women-Led Innovation Challenge",
+      "applications": "800+",
+      "countries": "50+",
+      "finalists": 30,
+      "named_finalists": [
+        { "name": "Zeko AI", "what": "Enterprise AI talent intelligence for precision hiring" },
+        { "name": "Magicroll AI", "what": "Generative AI for personalized video creation at scale" },
+        { "name": "Open Links Foundation (Vinoba)", "what": "Open-source AI platform" },
+        { "name": "SODIET", "what": "AI-powered precision nutrition and metabolic health" },
+        { "name": "Periwinkle Technologies (Smart Scope CX)", "what": "Portable AI cervical cancer screening device" },
+        { "name": "Shabd AI", "what": "Multilingual AI localization across 22 Indian languages" },
+        { "name": "Gooey AI", "country": "USA", "what": "Low-code multilingual AI orchestration for social impact" },
+        { "name": "Happykids AI", "country": "Luxembourg", "what": "Responsible AI for student wellbeing and emotional literacy" }
+      ]
+    },
+    "yuvai": {
+      "name": "YUVAi: Global Youth Challenge",
+      "applications": "2,500+",
+      "countries": 38,
+      "age_range": "13-21",
+      "finalists": 20,
+      "named_finalists": [
+        { "name": "MalariaX", "country": "Thailand", "age_group": "13-15", "what": "Multi-model AI for rural malaria species detection" },
+        { "name": "Paraspeak", "country": "India", "age_group": "16-18", "what": "AI wearable converting impaired speech to clear speech in real-time" },
+        { "name": "Arogya AI", "country": "India", "age_group": "19-21", "what": "Clinical language model for contextual medical reasoning" }
+      ]
+    }
+  },
+
+  "hackathons": [
+    { "name": "YUVAi Global Youth Challenge (Grand Finale)", "date": "Feb 16-17", "venue": "Bharat Mandapam + SSB", "scale": "20 finalists (from 2,500+ entries, 38 countries, ages 13-21)" },
+    { "name": "Tata Bharat YUVAi Hackathon", "date": "Feb 17", "venue": "Bharat Mandapam", "scale": "~2,000 students; voice-first AI in 9 languages; 10,000+ pre-trained across 22 colleges" },
+    { "name": "All-Woman Hackathon (AI by HER)", "date": "Feb 18", "venue": "Bharat Mandapam", "scale": "Part of AI by HER Challenge" },
+    { "name": "Lenovo LEAP AI Hackathon 2026", "date": "Feb 18", "venue": "Bharat Mandapam", "scale": "100 undergraduate teams" },
+    { "name": "IndiaAI Hackathon on Mineral Targeting", "date": "During summit", "venue": "Bharat Mandapam", "scale": "Winners announced during week" }
+  ],
+
+  "survival_tips": [
+    { "tip": "Arrive before 9 AM", "detail": "Multi-hour queues reported later in the day", "icon": "⏰" },
+    { "tip": "Carry cash", "detail": "UPI and digital payments failed on Day 1 due to patchy internet", "icon": "💵" },
+    { "tip": "Download everything offline", "detail": "Mobile internet barely worked inside the venue", "icon": "📱" },
+    { "tip": "Expect VIP disruptions", "detail": "PM Modi's Day 1 visit caused midday hall evacuation for security", "icon": "🔒" },
+    { "tip": "Enter via Gate 10 (Metro)", "detail": "Pragati Maidan Metro (Blue Line) — open full day; recommended", "icon": "🚇" },
+    { "tip": "Use golf carts", "detail": "The 70,000 sq.m venue is enormous — don't walk everything", "icon": "🏎️" },
+    { "tip": "Bring water and snacks", "detail": "Food counters were overwhelmed on Day 1 (Swiggy/Zepto kiosks available)", "icon": "🍔" },
+    { "tip": "Plan your chakra route", "detail": "With 10 arenas and 300+ pavilions, aimless wandering wastes hours", "icon": "🗺️" },
+    { "tip": "Use the summit mobile app", "detail": "QR-based entry and real-time schedule updates", "icon": "📲" },
+    { "tip": "Have backup meeting locations", "detail": "Outside venue in case of security-related shutdowns", "icon": "📍" }
+  ],
+
+  "checklist": [
+    "Download summit app (QR entry)",
+    "Carry cash ₹₹₹",
+    "Portable charger & power bank",
+    "Water bottle + snacks",
+    "Comfortable walking shoes",
+    "Offline materials downloaded",
+    "Business cards (lots of them)",
+    "Plan your route by chakra zones"
+  ],
+
+  "world_leaders": [
+    "PM Narendra Modi (India)",
+    "President Emmanuel Macron (France)",
+    "President Lula da Silva (Brazil)",
+    "UAE Crown Prince Sheikh Khaled",
+    "President of Spain",
+    "PM of Sri Lanka",
+    "PM of Bhutan",
+    "PM of Mauritius",
+    "PM Dick Schoof (Netherlands)",
+    "President Guy Parmelin (Switzerland)",
+    "President of Seychelles",
+    "Leaders from Bolivia, Croatia, Estonia, Finland, Greece, Guyana, Kazakhstan, Liechtenstein, Serbia, Slovakia",
+    "UN Secretary-General Antonio Guterres"
+  ],
+
+  "usispf_delegation": {
+    "size": "120+ senior executives",
+    "co_chairs": ["Shantanu Narayen (Adobe CEO)", "Raj Subramaniam (FedEx CEO)"],
+    "ai_task_force_chair": "John Chambers",
+    "description": "Largest-ever US industry delegation to an AI summit"
+  }
+}
