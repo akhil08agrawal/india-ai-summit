@@ -74,6 +74,26 @@ export default function OverviewTab() {
         </motion.div>
       </section>
 
+      {/* Summit Wrap-Up Banner */}
+      <section>
+        <div className="p-5 rounded-xl bg-card border border-border border-l-4 border-l-saffron">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-bold font-heading">How Was Your Summit? 🇮🇳</h2>
+              <p className="text-sm text-muted-foreground mt-0.5">Share your overall experience in 2 minutes — help shape the next one.</p>
+            </div>
+            <a
+              href="https://forms.gle/c3Lt4u7Wm8QbkcQ18"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex-shrink-0"
+            >
+              Share Your Experience →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Stats — compact row */}
       <section>
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">

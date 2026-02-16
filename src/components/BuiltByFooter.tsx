@@ -8,6 +8,14 @@ export default function BuiltByFooter() {
           Built with <span className="text-red-400">♥</span> by{" "}
           <span className="font-heading font-semibold text-foreground">Akhil Agrawal</span>
         </p>
+        <a
+          href="https://forms.gle/c3Lt4u7Wm8QbkcQ18"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-primary hover:underline font-medium"
+        >
+          Share Your Summit Experience →
+        </a>
         <div className="flex items-center gap-4">
           <a href="https://www.linkedin.com/in/akhil08/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
             <Linkedin className="w-4 h-4" />
