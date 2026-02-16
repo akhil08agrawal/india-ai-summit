@@ -203,29 +203,50 @@ export default function Onboarding() {
             >
               <StepHeader step={3} total={3} title="Which day are you visiting?" subtitle="Optional — skip to see everything" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {days.map((d) => (
-                  <motion.button
-                    key={d.id}
-                    onClick={() => { setVisitDay(d.id); finish(d.id); }}
-                    className="flex flex-col p-4 rounded-xl border-2 border-border bg-card hover:border-primary/50 transition-all text-left"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <span className="text-sm font-bold text-primary">{d.date_short} ({d.weekday})</span>
-                    <span className="text-sm text-muted-foreground mt-1">{d.title}</span>
-                  </motion.button>
-                ))}
+                {days.map((d) => {
+                  const selected = visitDay === d.id;
+                  return (
+                    <motion.button
+                      key={d.id}
+                      onClick={() => setVisitDay(visitDay === d.id ? null : d.id)}
+                      className={`flex flex-col p-4 rounded-xl border-2 transition-all text-left ${
+                        selected
+                          ? "border-primary bg-primary/10"
+                          : "border-border bg-card hover:border-primary/50"
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <span className="text-sm font-bold text-primary">{d.date_short} ({d.weekday})</span>
+                      <span className="text-sm text-muted-foreground mt-1">{d.title}</span>
+                    </motion.button>
+                  );
+                })}
               </div>
               <div className="flex justify-between">
                 <button onClick={() => setStep(2)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
-                <motion.button
-                  onClick={() => finish(null)}
-                  className="px-6 py-3 rounded-full border-2 border-border text-foreground font-heading font-semibold hover:border-muted-foreground/50"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Skip — Show Everything
-                </motion.button>
+                <div className="flex gap-3">
+                  <motion.button
+                    onClick={() => finish(null)}
+                    className="px-6 py-3 rounded-full border-2 border-border text-foreground font-heading font-semibold hover:border-muted-foreground/50"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Skip — Show All
+                  </motion.button>
+                  {visitDay && (
+                    <motion.button
+                      onClick={() => finish(visitDay)}
+                      className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-semibold"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                    >
+                      Continue →
+                    </motion.button>
+                  )}
+                </div>
               </div>
             </motion.div>
           )}
