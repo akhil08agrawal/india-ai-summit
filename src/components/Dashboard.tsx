@@ -14,6 +14,7 @@ import VenueTab from "./tabs/VenueTab";
 import SurvivalTab from "./tabs/SurvivalTab";
 import ProfilePanel from "./ProfilePanel";
 import BuiltByFooter from "./BuiltByFooter";
+import FloatingFeedback from "./FloatingFeedback";
 
 const tabs = [
   { id: "overview", label: "◉ Overview", icon: "◉" },
@@ -131,6 +132,7 @@ export default function Dashboard() {
         </AnimatePresence>
       </main>
       <BuiltByFooter />
+      <FloatingFeedback />
 
       {/* Profile Panel */}
       <ProfilePanel open={showProfile} onClose={() => setShowProfile(false)} />
