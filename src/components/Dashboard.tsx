@@ -84,6 +84,26 @@ export default function Dashboard() {
           )}
         </div>
 
+        {/* Tab bar */}
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex overflow-x-auto gap-1 px-4 pb-2" style={{ scrollbarWidth: "none" }}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium transition-all flex-shrink-0 ${
+                  activeTab === tab.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                <span className="sm:hidden">{tab.icon}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            ))}
+          </nav>
+        </div>
+
         {/* Day toggle strip */}
         <div className="flex items-center gap-1.5 px-4 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
           <span className="text-xs text-muted-foreground mr-1 flex-shrink-0">📅</span>
@@ -110,26 +130,6 @@ export default function Dashboard() {
           >
             All
           </button>
-        </div>
-
-        {/* Tab bar */}
-        <div className="max-w-7xl mx-auto">
-          <nav className="flex overflow-x-auto gap-1 px-4 pb-2" style={{ scrollbarWidth: "none" }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium transition-all flex-shrink-0 ${
-                  activeTab === tab.id
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                <span className="sm:hidden">{tab.icon}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
-              </button>
-            ))}
-          </nav>
         </div>
       </header>
 
