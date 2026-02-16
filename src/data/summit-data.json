@@ -42,11 +42,11 @@
   ],
 
   "days": [
-    { "id": 1, "date": "2026-02-16", "date_short": "Feb 16", "weekday": "Sun", "title": "Inauguration & Expo Launch" },
-    { "id": 2, "date": "2026-02-17", "date_short": "Feb 17", "weekday": "Mon", "title": "Thematic Sessions & Compendium" },
-    { "id": 3, "date": "2026-02-18", "date_short": "Feb 18", "weekday": "Tue", "title": "Hackathons & Deep Dives" },
-    { "id": 4, "date": "2026-02-19", "date_short": "Feb 19", "weekday": "Wed", "title": "High-Level Summit & Macron Keynote" },
-    { "id": 5, "date": "2026-02-20", "date_short": "Feb 20", "weekday": "Thu", "title": "Summit Declaration & Closing" }
+    { "id": 1, "date": "2026-02-16", "date_short": "Feb 16", "weekday": "Mon", "title": "Inauguration & Expo Launch" },
+    { "id": 2, "date": "2026-02-17", "date_short": "Feb 17", "weekday": "Tue", "title": "Thematic Sessions & Compendium" },
+    { "id": 3, "date": "2026-02-18", "date_short": "Feb 18", "weekday": "Wed", "title": "Hackathons & Deep Dives" },
+    { "id": 4, "date": "2026-02-19", "date_short": "Feb 19", "weekday": "Thu", "title": "High-Level Summit & Macron Keynote" },
+    { "id": 5, "date": "2026-02-20", "date_short": "Feb 20", "weekday": "Fri", "title": "Summit Declaration & Closing" }
   ],
 
   "keynote_speakers": [
