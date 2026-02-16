@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePreferences } from "@/contexts/PreferencesContext";
-import { personas } from "@/data/summit";
-import { Settings } from "lucide-react";
+import { personas, days } from "@/data/summit";
+import { UserCircle } from "lucide-react";
 import OverviewTab from "./tabs/OverviewTab";
 import ScheduleTab from "./tabs/ScheduleTab";
 import MustVisitTab from "./tabs/MustVisitTab";
@@ -12,6 +12,7 @@ import DealsTab from "./tabs/DealsTab";
 import PavilionsTab from "./tabs/PavilionsTab";
 import VenueTab from "./tabs/VenueTab";
 import SurvivalTab from "./tabs/SurvivalTab";
+import ProfilePanel from "./ProfilePanel";
 import BuiltByFooter from "./BuiltByFooter";
 
 const tabs = [
@@ -28,8 +29,10 @@ const tabs = [
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("overview");
+  const [showProfile, setShowProfile] = useState(false);
   const { clearPreferences, preferences } = usePreferences();
   const personaInfo = preferences?.persona ? personas[preferences.persona] : null;
+  const visitDayInfo = preferences?.visitDay ? days.find(d => d.id === preferences.visitDay) : null;
 
   return (
     <div className="min-h-screen bg-background grain-overlay">
@@ -37,23 +40,51 @@ export default function Dashboard() {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="text-lg sm:text-xl font-bold font-heading">
+            <button
+              onClick={clearPreferences}
+              className="text-lg sm:text-xl font-bold font-heading hover:opacity-80 transition-opacity"
+              title="Back to Home"
+            >
               <span className="text-gradient-saffron">IndiaAI</span>
               <span className="text-foreground ml-1">Summit</span>
-            </h1>
-            {personaInfo && (
-              <span className="hidden sm:inline-flex badge-for-you">
-                {personaInfo.icon} {personaInfo.label}
-              </span>
-            )}
+            </button>
+
+            {/* Role & date badges */}
+            <div className="hidden sm:flex items-center gap-2">
+              {personaInfo && (
+                <span className="badge-for-you">
+                  {personaInfo.icon} {personaInfo.label}
+                </span>
+              )}
+              {visitDayInfo && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground">
+                  📅 {visitDayInfo.date_short} ({visitDayInfo.weekday})
+                </span>
+              )}
+            </div>
           </div>
+
           <button
-            onClick={clearPreferences}
+            onClick={() => setShowProfile(true)}
             className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-            title="Change Preferences"
+            title="Your Profile"
           >
-            <Settings className="w-5 h-5" />
+            <UserCircle className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Mobile role/date row */}
+        <div className="sm:hidden flex items-center gap-2 px-4 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+          {personaInfo && (
+            <span className="badge-for-you flex-shrink-0">
+              {personaInfo.icon} {personaInfo.label}
+            </span>
+          )}
+          {visitDayInfo && (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground flex-shrink-0">
+              📅 {visitDayInfo.date_short}
+            </span>
+          )}
         </div>
 
         {/* Tab bar */}
@@ -100,6 +131,9 @@ export default function Dashboard() {
         </AnimatePresence>
       </main>
       <BuiltByFooter />
+
+      {/* Profile Panel */}
+      <ProfilePanel open={showProfile} onClose={() => setShowProfile(false)} />
     </div>
   );
 }

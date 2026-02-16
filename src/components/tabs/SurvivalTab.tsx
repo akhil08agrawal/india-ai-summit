@@ -5,7 +5,7 @@ import { survivalTips, checklist } from "@/data/summit";
 export default function SurvivalTab() {
   const [checked, setChecked] = useState<Set<number>>(() => {
     try {
-      const stored = sessionStorage.getItem("summit-checklist");
+      const stored = localStorage.getItem("summit-checklist");
       return stored ? new Set(JSON.parse(stored)) : new Set();
     } catch { return new Set(); }
   });
@@ -14,7 +14,7 @@ export default function SurvivalTab() {
     setChecked((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i); else next.add(i);
-      try { sessionStorage.setItem("summit-checklist", JSON.stringify([...next])); } catch {}
+      try { localStorage.setItem("summit-checklist", JSON.stringify([...next])); } catch {}
       return next;
     });
   };
