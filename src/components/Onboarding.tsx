@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { personas, interestTags, days } from "@/data/summit";
 import { usePreferences, Preferences } from "@/contexts/PreferencesContext";
+import BuiltByFooter from "./BuiltByFooter";
 
 const personaKeys = Object.keys(personas);
 
@@ -230,6 +231,7 @@ export default function Onboarding() {
           )}
         </AnimatePresence>
       </div>
+      <BuiltByFooter />
     </div>
   );
 }

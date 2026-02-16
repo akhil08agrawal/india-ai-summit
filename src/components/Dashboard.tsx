@@ -12,6 +12,7 @@ import DealsTab from "./tabs/DealsTab";
 import PavilionsTab from "./tabs/PavilionsTab";
 import VenueTab from "./tabs/VenueTab";
 import SurvivalTab from "./tabs/SurvivalTab";
+import BuiltByFooter from "./BuiltByFooter";
 
 const tabs = [
   { id: "overview", label: "◉ Overview", icon: "◉" },
@@ -98,6 +99,7 @@ export default function Dashboard() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <BuiltByFooter />
     </div>
   );
 }
