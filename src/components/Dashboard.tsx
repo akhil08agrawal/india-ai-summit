@@ -31,9 +31,15 @@ const tabs = [
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("overview");
   const [showProfile, setShowProfile] = useState(false);
-  const { clearPreferences, preferences } = usePreferences();
+  const { clearPreferences, preferences, setPreferences } = usePreferences();
   const personaInfo = preferences?.persona ? personas[preferences.persona] : null;
   const visitDayInfo = preferences?.visitDay ? days.find(d => d.id === preferences.visitDay) : null;
+
+  const handleDayChange = (dayId: number | null) => {
+    if (preferences) {
+      setPreferences({ ...preferences, visitDay: dayId });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background grain-overlay">
@@ -57,11 +63,6 @@ export default function Dashboard() {
                   {personaInfo.icon} {personaInfo.label}
                 </span>
               )}
-              {visitDayInfo && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground">
-                  📅 {visitDayInfo.date_short} ({visitDayInfo.weekday})
-                </span>
-              )}
             </div>
           </div>
 
@@ -74,18 +75,41 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Mobile role/date row */}
+        {/* Mobile role row */}
         <div className="sm:hidden flex items-center gap-2 px-4 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
           {personaInfo && (
             <span className="badge-for-you flex-shrink-0">
               {personaInfo.icon} {personaInfo.label}
             </span>
           )}
-          {visitDayInfo && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground flex-shrink-0">
-              📅 {visitDayInfo.date_short}
-            </span>
-          )}
+        </div>
+
+        {/* Day toggle strip */}
+        <div className="flex items-center gap-1.5 px-4 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+          <span className="text-xs text-muted-foreground mr-1 flex-shrink-0">📅</span>
+          {days.map((d) => (
+            <button
+              key={d.id}
+              onClick={() => handleDayChange(preferences?.visitDay === d.id ? null : d.id)}
+              className={`flex-shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                preferences?.visitDay === d.id
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              }`}
+            >
+              {d.date_short}
+            </button>
+          ))}
+          <button
+            onClick={() => handleDayChange(null)}
+            className={`flex-shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+              preferences?.visitDay === null
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            }`}
+          >
+            All
+          </button>
         </div>
 
         {/* Tab bar */}
