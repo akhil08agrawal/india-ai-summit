@@ -43,6 +43,12 @@ export function isForYou(tags: string[], interests: string[]): boolean {
 
 export type RecommendationLevel = "must_attend" | "recommended" | "explore" | null;
 
+export function getTodaysDayId(): number | null {
+  const today = new Date().toISOString().slice(0, 10);
+  const match = days.find(d => d.date === today);
+  return match?.id ?? null;
+}
+
 export function getRecommendationLevel(tags: string[], interests: string[]): RecommendationLevel {
   if (!tags?.length || !interests.length) return null;
   const overlap = tags.filter(t => interests.includes(t)).length;

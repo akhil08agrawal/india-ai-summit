@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Bookmark, BookmarkCheck, CalendarPlus, Download } from "lucide-react";
-import { days, getScheduleForDay, getRecommendationLevel, interestTags } from "@/data/summit";
+import { days, getScheduleForDay, getRecommendationLevel, interestTags, getTodaysDayId } from "@/data/summit";
 import type { RecommendationLevel } from "@/data/summit";
 import { usePreferences } from "@/contexts/PreferencesContext";
 import { useBookmarks, makeBookmarkId } from "@/contexts/BookmarksContext";
@@ -19,7 +19,7 @@ const recOrder: Record<string, number> = { must_attend: 0, recommended: 1, explo
 export default function ScheduleTab() {
   const { preferences } = usePreferences();
   const { toggle, isBookmarked, getAll, count } = useBookmarks();
-  const defaultDay = preferences?.visitDay || 4;
+  const defaultDay = preferences?.visitDay || getTodaysDayId() || 4;
   const [selectedDay, setSelectedDay] = useState<number | "saved">(defaultDay);
 
   const userInterests = preferences?.interests || [];

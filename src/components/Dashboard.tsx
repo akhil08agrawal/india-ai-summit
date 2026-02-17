@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePreferences } from "@/contexts/PreferencesContext";
-import { personas, days } from "@/data/summit";
+import { personas, days, getTodaysDayId } from "@/data/summit";
 import { UserCircle } from "lucide-react";
 import OverviewTab from "./tabs/OverviewTab";
 import ScheduleTab from "./tabs/ScheduleTab";
@@ -13,6 +13,7 @@ import VenueTab from "./tabs/VenueTab";
 import ProfilePanel from "./ProfilePanel";
 
 import FloatingFeedback from "./FloatingFeedback";
+import FeedbackModal from "./FeedbackModal";
 import AnnouncementsBanner from "./AnnouncementsBanner";
 import CommunityTab from "./tabs/CommunityTab";
 import BottomNav, { getGroupForTab, navGroups } from "./BottomNav";
@@ -41,8 +42,20 @@ const subTabLabels: Record<string, string> = {
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("overview");
   const [showProfile, setShowProfile] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const { clearPreferences, preferences, setPreferences } = usePreferences();
   const personaInfo = preferences?.persona ? personas[preferences.persona] : null;
+
+  // Auto-select today's date on first load if no visit day is set
+  useEffect(() => {
+    if (preferences && preferences.visitDay == null) {
+      const todayId = getTodaysDayId();
+      if (todayId !== null) {
+        setPreferences({ ...preferences, visitDay: todayId });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleDayChange = (dayId: number | null) => {
     if (preferences) {
@@ -189,7 +202,10 @@ export default function Dashboard() {
         </AnimatePresence>
       </main>
 
-      <FloatingFeedback />
+      {activeTab === "overview" && (
+        <FloatingFeedback onClick={() => setFeedbackOpen(true)} />
+      )}
+      <FeedbackModal open={feedbackOpen} onClose={() => setFeedbackOpen(false)} page={activeTab} />
 
       {/* Mobile Bottom Navigation */}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
