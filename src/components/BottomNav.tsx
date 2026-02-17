@@ -1,4 +1,4 @@
-import { Home, CalendarDays, Search, Users, MoreHorizontal } from "lucide-react";
+import { Home, CalendarDays, Search, Users } from "lucide-react";
 
 export interface NavGroup {
   id: string;
@@ -10,9 +10,8 @@ export interface NavGroup {
 export const navGroups: NavGroup[] = [
   { id: "overview", label: "Overview", icon: <Home className="w-5 h-5" />, tabs: ["overview"] },
   { id: "schedule", label: "Schedule", icon: <CalendarDays className="w-5 h-5" />, tabs: ["schedule"] },
-  { id: "explore", label: "Explore", icon: <Search className="w-5 h-5" />, tabs: ["stalls", "companies", "models", "deals", "pavilions", "venue"] },
-  { id: "connect", label: "Connect", icon: <Users className="w-5 h-5" />, tabs: ["meetups", "people", "community"] },
-  { id: "more", label: "More", icon: <MoreHorizontal className="w-5 h-5" />, tabs: ["survival"] },
+  { id: "explore", label: "Explore", icon: <Search className="w-5 h-5" />, tabs: ["stalls", "companies", "models", "pavilions", "venue"] },
+  { id: "connect", label: "Connect", icon: <Users className="w-5 h-5" />, tabs: ["community"] },
 ];
 
 /** Returns the nav group that contains the given tab ID */

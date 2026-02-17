@@ -55,56 +55,72 @@
       "role": "Prime Minister, India",
       "day": "Feb 16 & 19",
       "topic": "India at forefront of AI transformation; invited global data to reside in India; tax holiday to 2047 for cloud providers; 15% Safe Harbour margin; $18B semiconductor projects",
-      "icon": "🇮🇳"
+      "icon": "🇮🇳",
+      "session_title": "Inaugural Address & Leaders' Plenary",
+      "social": {}
     },
     {
       "name": "Sam Altman",
       "role": "CEO, OpenAI",
       "day": "Feb 19",
       "topic": "India as full-stack AI leader; 100M+ weekly Indian ChatGPT users; Democratic AI framework (Access, Adoption, Agency); building AI in India, with India, for India",
-      "icon": "🤖"
+      "icon": "🤖",
+      "session_title": "Democratic AI: Access, Adoption, Agency",
+      "social": { "twitter": "https://x.com/sama", "linkedin": "https://linkedin.com/in/samaltman" }
     },
     {
       "name": "Sundar Pichai",
       "role": "CEO, Alphabet / Google",
       "day": "Feb 19",
       "topic": "Future of work; massive India infrastructure investments through 2030",
-      "icon": "🔍"
+      "icon": "🔍",
+      "session_title": "Future of Work & India AI Infrastructure",
+      "social": { "twitter": "https://x.com/sundarpichai", "linkedin": "https://linkedin.com/in/sundarpichai" }
     },
     {
       "name": "Dario Amodei",
       "role": "CEO, Anthropic",
       "day": "Feb 19",
       "topic": "AI safety and governance; opened first India office in Bengaluru; India is 2nd-largest Claude market after US",
-      "icon": "🧪"
+      "icon": "🧪",
+      "session_title": "AI Safety & Governance",
+      "social": { "twitter": "https://x.com/DarioAmodei", "linkedin": "https://linkedin.com/in/dario-amodei" }
     },
     {
       "name": "Demis Hassabis",
       "role": "CEO, DeepMind",
       "day": "Feb 19",
       "topic": "Ethics of sentient-like models; future of work",
-      "icon": "🧬"
+      "icon": "🧬",
+      "session_title": "Ethics of Sentient-Like Models",
+      "social": { "twitter": "https://x.com/demaborabia", "linkedin": "https://linkedin.com/in/demis-hassabis" }
     },
     {
       "name": "Emmanuel Macron",
       "role": "President, France",
       "day": "Feb 19",
       "topic": "India-France bilateral AI cooperation; summit keynote",
-      "icon": "🇫🇷"
+      "icon": "🇫🇷",
+      "session_title": "India-France AI Cooperation Keynote",
+      "social": { "twitter": "https://x.com/EmmanuelMacron" }
     },
     {
       "name": "Brad Smith",
       "role": "President, Microsoft",
       "day": "Feb 19",
       "topic": "AI infrastructure; ₹1.5 lakh crore India investment for data centres and AI training",
-      "icon": "☁️"
+      "icon": "☁️",
+      "session_title": "AI Infrastructure Investment in India",
+      "social": { "twitter": "https://x.com/BradSmi", "linkedin": "https://linkedin.com/in/intlopr" }
     },
     {
       "name": "Michael Kremer",
       "role": "Nobel Laureate (Economics)",
       "day": "Feb 17",
       "topic": "AI for Social Good — Impact That Works (J-PAL session with MIT)",
-      "icon": "🏅"
+      "icon": "🏅",
+      "session_title": "AI for Social Good — Impact That Works",
+      "social": {}
     }
   ],
 
@@ -170,12 +186,12 @@
     { "name": "NVIDIA (via Yotta)", "key_person": "Jensen Huang (withdrew Feb 15)", "showcase": "Major GPU expansion in India via Yotta partnership; scaling from ~10,000 GPUs", "tags": ["infra"], "website": "nvidia.com", "founded": 1993, "hq": "Santa Clara" },
     { "name": "AMD", "key_person": "—", "showcase": "Helios platform with TCS; MI455X GPUs, EPYC Venice CPUs, Pensando Vulcano NICs, ROCm; 200 MW blueprint", "tags": ["infra"], "website": "amd.com", "founded": 1969, "hq": "Santa Clara" },
     { "name": "Qualcomm", "key_person": "Cristiano Amon (CEO), Sahil Arora (VP India)", "showcase": "Hybrid AI deployment; sovereign AI on-device models", "tags": ["infra", "models"], "website": "qualcomm.com", "founded": 1985, "hq": "San Diego" },
-    { "name": "Fujitsu", "key_person": "—", "showcase": "Japan Pavilion: LLM Takane, MONAKA processor (Arm-based, high perf/low power), quantum computer mock-up", "tags": ["models", "infra"], "website": "fujitsu.com", "founded": 1935, "hq": "Tokyo" },
+    { "name": "Fujitsu", "key_person": "—", "showcase": "Japan Pavilion: LLM Takane, MONAKA processor (Arm-based, high perf/low power), quantum computer mock-up", "tags": ["models", "infra"], "website": "fujitsu.com", "founded": 1935, "hq": "Tokyo", "booth": "Booth 12 (Japan Pavilion)", "contact": null },
     { "name": "Adobe", "key_person": "Shantanu Narayen (CEO)", "showcase": "Kathavatar AI films; Future of Film session; USISPF co-chair", "tags": ["creative"], "website": "adobe.com", "founded": 1982, "hq": "San Jose" },
     { "name": "Cisco", "key_person": "Harish Krishnan (MD India)", "showcase": "Krishi Mangal: sovereign AI programme for 44,000 women farmers", "tags": ["governance", "global"], "website": "cisco.com", "founded": 1984, "hq": "San Jose" },
     { "name": "Scale AI", "key_person": "Alexandr Wang (CEO)", "showcase": "AI data infrastructure", "tags": ["infra", "models"], "website": "scale.com", "founded": 2016, "hq": "San Francisco" },
     { "name": "Cloudflare", "key_person": "Matthew Prince (CEO)", "showcase": "AI infrastructure", "tags": ["infra"], "website": "cloudflare.com", "founded": 2009, "hq": "San Francisco" },
-    { "name": "Amazon / AWS", "key_person": "—", "showcase": "₹2.9 lakh crore by 2030; cloud AI; WAVES sessions", "tags": ["infra", "creative"], "website": "aws.amazon.com", "founded": 1994, "hq": "Seattle" },
+    { "name": "Amazon / AWS", "key_person": "—", "showcase": "₹2.9 lakh crore by 2030; cloud AI; WAVES sessions", "tags": ["infra", "creative"], "website": "aws.amazon.com", "founded": 1994, "hq": "Seattle", "booth": "Hall 4, Booth 4.1", "contact": null },
     { "name": "Intel", "key_person": "Gokul Subramaniam (India President)", "showcase": "AI infrastructure + chips in India", "tags": ["infra"], "website": "intel.com", "founded": 1968, "hq": "Santa Clara" },
     { "name": "Mistral AI", "key_person": "Arthur Mensch (CEO)", "showcase": "European AI leadership; open-weight LLMs", "tags": ["models"], "website": "mistral.ai", "founded": 2023, "hq": "Paris" },
     { "name": "Accenture", "key_person": "Julie Sweet (Chair & CEO)", "showcase": "Global South AI positioning", "tags": ["global"], "website": "accenture.com", "founded": 1989, "hq": "Dublin" },
@@ -190,18 +206,18 @@
     { "name": "Infosys", "key_person": "Salil Parekh (CEO)", "showcase": "Enterprise AI leadership", "tags": ["infra"], "website": "infosys.com", "founded": 1981, "hq": "Bengaluru" },
     { "name": "Wipro", "key_person": "Ivana Bartoletti (Global Chief Privacy & AI Governance Officer)", "showcase": "AI governance; India as AI talent hub", "tags": ["governance"], "website": "wipro.com", "founded": 1945, "hq": "Bengaluru" },
     { "name": "Tech Mahindra", "key_person": "Sham Arora (CTO)", "showcase": "India AI talent factory; Maker's Lab foundation model for Indic languages", "tags": ["models", "voice"], "website": "techmahindra.com", "founded": 1986, "hq": "Pune" },
-    { "name": "HCLTech", "key_person": "— (Hall 4, Booth 4.5)", "showcase": "The Best AI, Born in India", "tags": ["infra"], "website": "hcltech.com", "founded": 1991, "hq": "Noida" },
+    { "name": "HCLTech", "key_person": "— (Hall 4, Booth 4.5)", "showcase": "The Best AI, Born in India", "tags": ["infra"], "website": "hcltech.com", "founded": 1991, "hq": "Noida", "booth": "Hall 4, Booth 4.5", "contact": null },
     { "name": "Yotta Data Services", "key_person": "Sunil Gupta (CEO)", "showcase": "NVIDIA GPU expansion: multifold capacity from ~10,000 GPUs", "tags": ["infra"], "website": "yotta.com", "founded": 2019, "hq": "Mumbai" },
-    { "name": "Neysa", "key_person": "—", "showcase": "Blackstone-led $1.2B investment; deploying 20,000+ GPUs in India", "tags": ["infra", "startups"], "website": "neysa.ai", "founded": 2023, "hq": "Mumbai" },
+    { "name": "Neysa", "key_person": "—", "showcase": "Blackstone-led $1.2B investment; deploying 20,000+ GPUs in India", "tags": ["infra", "startups"], "website": "neysa.ai", "founded": 2023, "hq": "Mumbai", "booth": "Booth 5.5A", "contact": null },
     { "name": "Palo Alto Networks", "key_person": "Nikesh Arora (CEO)", "showcase": "AI cybersecurity", "tags": ["governance"], "website": "paloaltonetworks.com", "founded": 2005, "hq": "Santa Clara" },
     { "name": "KPMG India", "key_person": "—", "showcase": "Official Knowledge Partner; enterprise AI frameworks and sector case studies", "tags": ["governance"], "website": "kpmg.com/in", "hq": "Mumbai" },
-    { "name": "EY", "key_person": "— (Hall 1, Booth 1.7)", "showcase": "Scout robot: digital twins + edge AI for autonomous industrial inspection", "tags": ["infra", "creative"], "website": "ey.com", "founded": 1989, "hq": "London" }
+    { "name": "EY", "key_person": "— (Hall 1, Booth 1.7)", "showcase": "Scout robot: digital twins + edge AI for autonomous industrial inspection", "tags": ["infra", "creative"], "website": "ey.com", "founded": 1989, "hq": "London", "booth": "Hall 1, Booth 1.7", "contact": null }
   ],
 
   "foundation_models": [
     { "id": 1, "developer": "Sarvam AI", "model_name": "Sarvam Vision / Bulbul v3 / Sarvam Edge", "parameters": "120B (in progress)", "founded": 2023, "hq": "Bengaluru", "funding": "$53.8M (Lightspeed, Peak XV, Khosla)", "key_people": "Pratyush Kumar (CEO), Vivek Raghavan (Co-founder)", "focus": "Multilingual voice-first AI; outperformed Gemini/ChatGPT on Indic benchmarks; offline on-device AI", "tags": ["voice", "models"] },
-    { "id": 2, "developer": "BharatGen (IIT Bombay)", "model_name": "Param2", "parameters": "17B (Mixture-of-Experts)", "founded": null, "hq": "Mumbai", "funding": "₹1,200 crore (public)", "key_people": "Rishi Bal (CEO)", "focus": "22-language sovereign model; trained on Bharat Data Sagar dataset", "tags": ["models", "global"] },
-    { "id": 3, "developer": "Fractal Analytics", "model_name": "Large Reasoning Model", "parameters": "N/A", "founded": 2000, "hq": "Mumbai / New York", "funding": "$693M+ (TPG; IPO Feb 2026)", "key_people": null, "focus": "India's first reasoning model; STEM, medical diagnostics, analytics", "tags": ["models", "health"] },
+    { "id": 2, "developer": "BharatGen (IIT Bombay)", "model_name": "Param2", "parameters": "17B (Mixture-of-Experts)", "founded": null, "hq": "Mumbai", "funding": "₹1,200 crore (public)", "key_people": "Rishi Bal (CEO)", "focus": "22-language sovereign model; trained on Bharat Data Sagar dataset", "tags": ["models", "global"], "booth": "Booth 92" },
+    { "id": 3, "developer": "Fractal Analytics", "model_name": "Large Reasoning Model", "parameters": "N/A", "founded": 2000, "hq": "Mumbai / New York", "funding": "$693M+ (TPG; IPO Feb 2026)", "key_people": null, "focus": "India's first reasoning model; STEM, medical diagnostics, analytics", "tags": ["models", "health"], "booth": "Hall 14, Pod 16/30" },
     { "id": 4, "developer": "Tech Mahindra Maker's Lab", "model_name": "Indic Foundation Model", "parameters": "N/A", "founded": null, "hq": "Pune", "funding": "Corporate-funded", "key_people": "Sham Arora (CTO)", "focus": "Optimized for Indic languages; agentic AI platform for e-governance", "tags": ["voice", "governance"] },
     { "id": 5, "developer": "Avataar.ai", "model_name": "AI Avatar Library", "parameters": "N/A", "founded": 2014, "hq": "Bengaluru", "funding": "$55.5M (Tiger Global, Peak XV)", "key_people": null, "focus": "Fine-tuned for Indian languages in agriculture, healthcare, governance", "tags": ["creative", "health"] },
     { "id": 6, "developer": "Gnani AI", "model_name": "Voice-First Foundation Model", "parameters": "N/A", "founded": 2016, "hq": "Bengaluru", "funding": "$7.72M (Info Edge)", "key_people": null, "focus": "Voice AI, speech processing for Indian languages", "tags": ["voice"] },

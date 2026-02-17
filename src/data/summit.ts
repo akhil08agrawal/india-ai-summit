@@ -40,3 +40,15 @@ export function getScheduleForDay(dayNum: number) {
 export function isForYou(tags: string[], interests: string[]): boolean {
   return tags?.some((t: string) => interests.includes(t)) ?? false;
 }
+
+export type RecommendationLevel = "must_attend" | "recommended" | "explore" | null;
+
+export function getRecommendationLevel(tags: string[], interests: string[]): RecommendationLevel {
+  if (!tags?.length || !interests.length) return null;
+  const overlap = tags.filter(t => interests.includes(t)).length;
+  const ratio = overlap / Math.min(interests.length, tags.length);
+  if (ratio >= 0.6) return "must_attend";
+  if (ratio >= 0.3) return "recommended";
+  if (overlap > 0) return "explore";
+  return null;
+}

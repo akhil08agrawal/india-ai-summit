@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { companiesGlobal, companiesIndian, isForYou, interestTags } from "@/data/summit";
+import { companiesGlobal, companiesIndian, isForYou, interestTags, challengeFinalists } from "@/data/summit";
 import { usePreferences } from "@/contexts/PreferencesContext";
 
 type Filter = "all" | "global" | "indian";
@@ -57,7 +57,14 @@ export default function CompaniesTab() {
                 {forYou && <span className="badge-for-you text-[10px]">✦ For You</span>}
               </div>
               {c.key_person && <p className="text-xs text-primary mt-1">{c.key_person}</p>}
+              {c.booth && <p className="text-xs text-primary font-medium mt-1">📍 {c.booth}</p>}
               <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{c.showcase}</p>
+              {c.contact && (
+                <div className="flex items-center gap-3 mt-1.5">
+                  {c.contact.email && <a href={`mailto:${c.contact.email}`} className="text-xs text-muted-foreground hover:text-primary">✉️ Email</a>}
+                  {c.contact.phone && <a href={`tel:${c.contact.phone}`} className="text-xs text-muted-foreground hover:text-primary">📞 Call</a>}
+                </div>
+              )}
               {c.tags && (
                 <div className="flex gap-1 mt-2 flex-wrap">
                   {c.tags.map((t: string) => {
@@ -72,6 +79,33 @@ export default function CompaniesTab() {
           );
         })}
       </div>
+
+      {/* Challenge Finalists */}
+      <section className="mt-10">
+        <h2 className="text-xl sm:text-2xl font-bold font-heading mb-4">Challenge Finalists</h2>
+        {Object.values(challengeFinalists).map((challenge: any, ci: number) => (
+          <div key={ci} className="mb-6">
+            <h3 className="font-heading font-bold text-sm text-primary mb-2">{challenge.name}</h3>
+            <p className="text-xs text-muted-foreground mb-3">
+              {challenge.applications} applications • {challenge.countries || challenge.age_range} • {challenge.finalists} finalists
+              {challenge.prize && ` • Prize: ${challenge.prize}`}
+            </p>
+            {challenge.named_finalists && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {challenge.named_finalists.map((f: any, fi: number) => (
+                  <div key={fi} className="p-3 rounded-lg bg-card border border-border">
+                    <h4 className="text-sm font-bold">
+                      {f.name}
+                      {f.country && <span className="text-xs text-muted-foreground font-normal ml-1">({f.country})</span>}
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">{f.what}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </section>
     </div>
   );
 }

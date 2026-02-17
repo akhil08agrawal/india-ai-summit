@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
+import { Bookmark, BookmarkCheck, Twitter, Linkedin } from "lucide-react";
 import {
   headlineStats, keynoteSpeakers, mustVisitByPersona, personas,
   getScheduleForDay, isForYou, interestTags, days,
   companiesGlobal, companiesIndian, foundationModels, dealsAndInvestments
 } from "@/data/summit";
 import { usePreferences } from "@/contexts/PreferencesContext";
+import { useBookmarks, makeBookmarkId } from "@/contexts/BookmarksContext";
+import type { BookmarkEntry } from "@/contexts/BookmarksContext";
 import CountdownTimer from "@/components/CountdownTimer";
 import PollsSection from "@/components/tabs/PollsSection";
 
 export default function OverviewTab() {
   const { preferences } = usePreferences();
+  const { toggle, isBookmarked } = useBookmarks();
   const userInterests = preferences?.interests || [];
   const persona = preferences?.persona || "founder";
   const visitDay = preferences?.visitDay;
@@ -127,6 +131,9 @@ export default function OverviewTab() {
           <div className="space-y-2">
             {forYouSessions.map((s: any, i: number) => {
               const dayInfo = days.find(d => d.id === s.dayId);
+              const entry: BookmarkEntry = { dayId: s.dayId, time: s.time, title: s.session, venue: s.venue, speakers: s.speakers, tags: s.tags, is_highlight: s.is_highlight };
+              const bookmarkId = makeBookmarkId(entry);
+              const saved = isBookmarked(bookmarkId);
               return (
                 <motion.div
                   key={i}
@@ -135,14 +142,25 @@ export default function OverviewTab() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                 >
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{dayInfo?.date_short}</span>
-                    <span className="text-xs text-primary font-mono font-medium">{s.time}</span>
-                    {s.is_highlight && <span className="text-xs text-saffron font-medium">★</span>}
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{dayInfo?.date_short}</span>
+                        <span className="text-xs text-primary font-mono font-medium">{s.time}</span>
+                        {s.is_highlight && <span className="text-xs text-saffron font-medium">★</span>}
+                      </div>
+                      <h3 className="font-heading font-bold text-sm mt-1">{s.session}</h3>
+                      {s.venue && <p className="text-xs text-muted-foreground mt-0.5">📍 {s.venue}</p>}
+                      {s.speakers && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">🎤 {s.speakers}</p>}
+                    </div>
+                    <button
+                      onClick={() => toggle(entry)}
+                      className="flex-shrink-0 p-1.5 rounded-lg hover:bg-muted transition-colors"
+                      title={saved ? "Remove bookmark" : "Bookmark session"}
+                    >
+                      {saved ? <BookmarkCheck className="w-4 h-4 text-primary" /> : <Bookmark className="w-4 h-4 text-muted-foreground" />}
+                    </button>
                   </div>
-                  <h3 className="font-heading font-bold text-sm mt-1">{s.session}</h3>
-                  {s.venue && <p className="text-xs text-muted-foreground mt-0.5">📍 {s.venue}</p>}
-                  {s.speakers && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">🎤 {s.speakers}</p>}
                 </motion.div>
               );
             })}
@@ -189,6 +207,7 @@ export default function OverviewTab() {
               >
                 <h3 className="font-heading font-bold text-sm">{c.name}</h3>
                 {c.key_person && <p className="text-[10px] text-primary">{c.key_person}</p>}
+                {c.booth && <p className="text-[10px] text-primary font-medium">📍 {c.booth}</p>}
                 <p className="text-xs text-muted-foreground line-clamp-2">{c.showcase}</p>
               </motion.div>
             ))}
@@ -233,7 +252,22 @@ export default function OverviewTab() {
               <span className="text-xl">{s.icon}</span>
               <h3 className="font-heading font-bold text-sm">{s.name}</h3>
               <p className="text-[10px] text-muted-foreground">{s.role}</p>
+              {s.session_title && <p className="text-[10px] text-primary font-medium">{s.session_title}</p>}
               <p className="text-[10px] text-primary font-medium">{s.day}</p>
+              {s.social && (Object.keys(s.social).length > 0) && (
+                <div className="flex items-center gap-2 pt-0.5">
+                  {s.social.twitter && (
+                    <a href={s.social.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                      <Twitter className="w-3 h-3" />
+                    </a>
+                  )}
+                  {s.social.linkedin && (
+                    <a href={s.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                      <Linkedin className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

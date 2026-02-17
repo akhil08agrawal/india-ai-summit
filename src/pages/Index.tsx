@@ -1,4 +1,5 @@
 import { PreferencesProvider, usePreferences } from "@/contexts/PreferencesContext";
+import { BookmarksProvider } from "@/contexts/BookmarksContext";
 import Onboarding from "@/components/Onboarding";
 import Dashboard from "@/components/Dashboard";
 
@@ -9,7 +10,9 @@ function IndexContent() {
 
 const Index = () => (
   <PreferencesProvider>
-    <IndexContent />
+    <BookmarksProvider>
+      <IndexContent />
+    </BookmarksProvider>
   </PreferencesProvider>
 );
 

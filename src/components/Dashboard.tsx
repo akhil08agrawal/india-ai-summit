@@ -8,16 +8,12 @@ import ScheduleTab from "./tabs/ScheduleTab";
 import MustVisitTab from "./tabs/MustVisitTab";
 import CompaniesTab from "./tabs/CompaniesTab";
 import ModelsTab from "./tabs/ModelsTab";
-import DealsTab from "./tabs/DealsTab";
 import PavilionsTab from "./tabs/PavilionsTab";
 import VenueTab from "./tabs/VenueTab";
-import SurvivalTab from "./tabs/SurvivalTab";
 import ProfilePanel from "./ProfilePanel";
 
 import FloatingFeedback from "./FloatingFeedback";
 import AnnouncementsBanner from "./AnnouncementsBanner";
-import MeetupsTab from "./tabs/MeetupsTab";
-import PeopleTab from "./tabs/PeopleTab";
 import CommunityTab from "./tabs/CommunityTab";
 import BottomNav, { getGroupForTab, navGroups } from "./BottomNav";
 
@@ -27,12 +23,8 @@ const tabs = [
   { id: "stalls", label: "📍 Must-Visit", icon: "📍" },
   { id: "companies", label: "🏢 Companies", icon: "🏢" },
   { id: "models", label: "🧠 AI Models", icon: "🧠" },
-  { id: "deals", label: "💰 Deals", icon: "💰" },
   { id: "pavilions", label: "🌍 Pavilions", icon: "🌍" },
   { id: "venue", label: "🗺️ Venue", icon: "🗺️" },
-  { id: "survival", label: "⚡ Tips", icon: "⚡" },
-  { id: "meetups", label: "🤝 Meetups", icon: "🤝" },
-  { id: "people", label: "👥 People", icon: "👥" },
   { id: "community", label: "💬 Community", icon: "💬" },
 ];
 
@@ -41,11 +33,8 @@ const subTabLabels: Record<string, string> = {
   stalls: "📍 Must-Visit",
   companies: "🏢 Companies",
   models: "🧠 AI Models",
-  deals: "💰 Deals",
   pavilions: "🌍 Pavilions",
   venue: "🗺️ Venue",
-  meetups: "🤝 Meetups",
-  people: "👥 People",
   community: "💬 Community",
 };
 
@@ -193,12 +182,8 @@ export default function Dashboard() {
             {activeTab === "stalls" && <MustVisitTab />}
             {activeTab === "companies" && <CompaniesTab />}
             {activeTab === "models" && <ModelsTab />}
-            {activeTab === "deals" && <DealsTab />}
             {activeTab === "pavilions" && <PavilionsTab />}
             {activeTab === "venue" && <VenueTab />}
-            {activeTab === "survival" && <SurvivalTab />}
-            {activeTab === "meetups" && <MeetupsTab />}
-            {activeTab === "people" && <PeopleTab />}
             {activeTab === "community" && <CommunityTab />}
           </motion.div>
         </AnimatePresence>
