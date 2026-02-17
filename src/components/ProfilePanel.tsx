@@ -151,21 +151,21 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
               {/* Interests */}
               <section>
                 <h3 className="text-sm font-bold font-heading mb-3">Your Interests</h3>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="grid grid-cols-2 gap-2">
                   {interestTags.map((tag) => {
                     const selected = interests.includes(tag.id);
                     return (
                       <button
                         key={tag.id}
                         onClick={() => toggleInterest(tag.id)}
-                        className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all text-left ${
+                        className={`flex items-center gap-2 p-2.5 rounded-xl border-2 transition-all text-left ${
                           selected
                             ? "border-primary bg-primary/10"
                             : "border-border hover:border-muted-foreground/30"
                         }`}
                       >
-                        <span className="text-lg">{tag.icon}</span>
-                        <span className="text-xs font-medium">{tag.label}</span>
+                        <span className="text-base">{tag.icon}</span>
+                        <span className="text-xs font-medium leading-tight">{tag.label}</span>
                       </button>
                     );
                   })}
@@ -175,30 +175,29 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
               {/* Visit Day */}
               <section>
                 <h3 className="text-sm font-bold font-heading mb-3">Visit Day</h3>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
                   {days.map((d) => (
                     <button
                       key={d.id}
                       onClick={() => setVisitDay(visitDay === d.id ? null : d.id)}
-                      className={`flex flex-col p-3 rounded-xl border-2 transition-all text-left ${
+                      className={`flex-shrink-0 px-3 py-2 rounded-full border-2 transition-all text-center ${
                         visitDay === d.id
                           ? "border-primary bg-primary/10"
                           : "border-border hover:border-muted-foreground/30"
                       }`}
                     >
-                      <span className="text-xs font-bold text-primary">{d.date_short} ({d.weekday})</span>
-                      <span className="text-xs text-muted-foreground">{d.title}</span>
+                      <span className="text-xs font-bold text-primary whitespace-nowrap">{d.date_short}</span>
                     </button>
                   ))}
                   <button
                     onClick={() => setVisitDay(null)}
-                    className={`p-3 rounded-xl border-2 transition-all text-left text-xs font-medium ${
+                    className={`flex-shrink-0 px-3 py-2 rounded-full border-2 transition-all text-xs font-medium ${
                       visitDay === null
                         ? "border-primary bg-primary/10"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
                   >
-                    Show All Days
+                    All
                   </button>
                 </div>
               </section>
@@ -256,7 +255,7 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
             </div>
 
             {/* Footer actions */}
-            <div className="p-4 border-t border-border flex gap-3">
+            <div className="p-4 pb-6 border-t border-border flex gap-3" style={{ paddingBottom: `max(1.5rem, env(safe-area-inset-bottom))` }}>
               <button
                 onClick={handleReset}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"

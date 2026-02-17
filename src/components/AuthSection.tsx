@@ -5,7 +5,6 @@ import type { User } from "@supabase/supabase-js";
 
 export default function AuthSection() {
   const [expanded, setExpanded] = useState(false);
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,15 +29,22 @@ export default function AuthSection() {
     setLoading(true);
 
     try {
-      if (mode === "signup") {
-        const { error: err } = await supabase.auth.signUp({ email, password });
-        if (err) throw err;
-        setSuccess("Account created! Check your email to confirm.");
+      // Try sign in first
+      const { error: signInErr } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (signInErr) {
+        // If invalid credentials, auto-create account
+        if (signInErr.message === "Invalid login credentials") {
+          const { error: signUpErr } = await supabase.auth.signUp({ email, password });
+          if (signUpErr) throw signUpErr;
+          setSuccess(`Account created! Your login: ${email}. Bookmark https://india-ai-summit.vercel.app/ to access your profile anytime.`);
+        } else {
+          throw signInErr;
+        }
       } else {
-        const { error: err } = await supabase.auth.signInWithPassword({ email, password });
-        if (err) throw err;
         setSuccess("Signed in successfully.");
       }
+
       setEmail("");
       setPassword("");
     } catch (err: any) {
@@ -84,56 +90,37 @@ export default function AuthSection() {
               Sign out
             </button>
           ) : (
-            <>
-              {/* Tab toggle */}
-              <div className="flex rounded-lg bg-muted p-0.5">
-                <button
-                  onClick={() => { setMode("signin"); setError(null); setSuccess(null); }}
-                  className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                    mode === "signin" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground"
-                  }`}
-                >
-                  Sign In
-                </button>
-                <button
-                  onClick={() => { setMode("signup"); setError(null); setSuccess(null); }}
-                  className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                    mode === "signup" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground"
-                  }`}
-                >
-                  Create Account
-                </button>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-2.5">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                  required
-                  className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  required
-                  minLength={6}
-                  className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                {error && <p className="text-xs text-destructive">{error}</p>}
-                {success && <p className="text-xs text-green-400">{success}</p>}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-2 rounded-lg bg-primary text-primary-foreground text-sm font-heading font-semibold disabled:opacity-50 transition-colors"
-                >
-                  {loading ? "..." : mode === "signin" ? "Sign In" : "Create Account"}
-                </button>
-              </form>
-            </>
+            <form onSubmit={handleSubmit} className="space-y-2.5">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+                className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+                minLength={6}
+                className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              {error && <p className="text-xs text-destructive">{error}</p>}
+              {success && <p className="text-xs text-green-400">{success}</p>}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-2 rounded-lg bg-primary text-primary-foreground text-sm font-heading font-semibold disabled:opacity-50 transition-colors"
+              >
+                {loading ? "..." : "Continue"}
+              </button>
+              <p className="text-[10px] text-muted-foreground text-center">
+                Signs in if you have an account, otherwise creates one automatically.
+              </p>
+            </form>
           )}
         </div>
       )}
