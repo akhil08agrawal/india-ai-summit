@@ -50,22 +50,29 @@ function saveToStorage(prefs: Preferences | null) {
   } catch {}
 }
 
-function syncToSupabase(prefs: Preferences) {
+async function syncToSupabase(prefs: Preferences) {
   const deviceId = getDeviceId();
+  const payload: Record<string, unknown> = {
+    device_id: deviceId,
+    persona: prefs.persona,
+    interests: prefs.interests,
+    visit_day: prefs.visitDay,
+    whatsapp: prefs.whatsapp,
+    working_on: prefs.workingOn,
+    looking_for: prefs.lookingFor,
+  };
+
+  // Attach user_id if the user is signed in
+  try {
+    const { data } = await supabase.auth.getSession();
+    if (data.session?.user?.id) {
+      payload.user_id = data.session.user.id;
+    }
+  } catch {}
+
   supabase
     .from("profiles")
-    .upsert(
-      {
-        device_id: deviceId,
-        persona: prefs.persona,
-        interests: prefs.interests,
-        visit_day: prefs.visitDay,
-        whatsapp: prefs.whatsapp,
-        working_on: prefs.workingOn,
-        looking_for: prefs.lookingFor,
-      },
-      { onConflict: "device_id" }
-    )
+    .upsert(payload, { onConflict: "device_id" })
     .then(({ error }) => {
       if (error) console.warn("Profile sync failed:", error.message);
     });

@@ -19,6 +19,7 @@ import AnnouncementsBanner from "./AnnouncementsBanner";
 import MeetupsTab from "./tabs/MeetupsTab";
 import PeopleTab from "./tabs/PeopleTab";
 import CommunityTab from "./tabs/CommunityTab";
+import BottomNav, { getGroupForTab, navGroups } from "./BottomNav";
 
 const tabs = [
   { id: "overview", label: "◉ Overview", icon: "◉" },
@@ -35,18 +36,34 @@ const tabs = [
   { id: "community", label: "💬 Community", icon: "💬" },
 ];
 
+/* Sub-tab labels for mobile strip (only for multi-tab groups) */
+const subTabLabels: Record<string, string> = {
+  stalls: "📍 Must-Visit",
+  companies: "🏢 Companies",
+  models: "🧠 AI Models",
+  deals: "💰 Deals",
+  pavilions: "🌍 Pavilions",
+  venue: "🗺️ Venue",
+  meetups: "🤝 Meetups",
+  people: "👥 People",
+  community: "💬 Community",
+};
+
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("overview");
   const [showProfile, setShowProfile] = useState(false);
   const { clearPreferences, preferences, setPreferences } = usePreferences();
   const personaInfo = preferences?.persona ? personas[preferences.persona] : null;
-  const visitDayInfo = preferences?.visitDay ? days.find(d => d.id === preferences.visitDay) : null;
 
   const handleDayChange = (dayId: number | null) => {
     if (preferences) {
       setPreferences({ ...preferences, visitDay: dayId });
     }
   };
+
+  // Get current group for mobile sub-tab strip
+  const activeGroup = getGroupForTab(activeTab);
+  const showSubTabs = activeGroup && activeGroup.tabs.length > 1;
 
   return (
     <div className="min-h-screen bg-background grain-overlay">
@@ -91,8 +108,8 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* Tab bar */}
-        <div className="max-w-7xl mx-auto">
+        {/* Desktop tab bar — hidden on mobile (replaced by BottomNav) */}
+        <div className="hidden md:block max-w-7xl mx-auto">
           <nav className="flex overflow-x-auto gap-1 px-4 pb-2" style={{ scrollbarWidth: "none" }}>
             {tabs.map((tab) => (
               <button
@@ -104,12 +121,32 @@ export default function Dashboard() {
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
-                <span className="sm:hidden">{tab.icon}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
+                {tab.label}
               </button>
             ))}
           </nav>
         </div>
+
+        {/* Mobile sub-tab strip — only visible when active group has multiple tabs */}
+        {showSubTabs && (
+          <div className="md:hidden overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+            <nav className="flex gap-1 px-4 pb-2">
+              {activeGroup.tabs.map((tabId) => (
+                <button
+                  key={tabId}
+                  onClick={() => setActiveTab(tabId)}
+                  className={`whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-medium transition-all flex-shrink-0 ${
+                    activeTab === tabId
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {subTabLabels[tabId] || tabId}
+                </button>
+              ))}
+            </nav>
+          </div>
+        )}
 
         {/* Day toggle strip */}
         <div className="flex items-center gap-1.5 px-4 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
@@ -140,8 +177,8 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Content */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 py-6">
+      {/* Content — extra bottom padding on mobile for BottomNav clearance */}
+      <main className="relative z-10 max-w-7xl mx-auto px-4 py-6 pb-24 md:pb-6">
         <AnnouncementsBanner />
         <AnimatePresence mode="wait">
           <motion.div
@@ -168,6 +205,9 @@ export default function Dashboard() {
       </main>
 
       <FloatingFeedback />
+
+      {/* Mobile Bottom Navigation */}
+      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Profile Panel */}
       <ProfilePanel open={showProfile} onClose={() => setShowProfile(false)} />

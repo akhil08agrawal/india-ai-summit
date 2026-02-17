@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 import { personas, interestTags, days, lookingForTags } from "@/data/summit";
 import { usePreferences, Preferences } from "@/contexts/PreferencesContext";
 import BuiltByFooter from "./BuiltByFooter";
 
 const personaKeys = Object.keys(personas);
+
+/* Maps each persona to 2 default interest IDs for quick start */
+const personaDefaults: Record<string, string[]> = {
+  founder: ["startups", "models"],
+  enterprise: ["infra", "governance"],
+  developer: ["models", "infra"],
+  investor: ["startups", "global"],
+  researcher: ["models", "governance"],
+  policy: ["governance", "global"],
+};
 
 export default function Onboarding() {
   const { setPreferences } = usePreferences();
@@ -40,6 +51,18 @@ export default function Onboarding() {
     setPreferences(prefs);
   };
 
+  const quickStart = (personaKey: string) => {
+    const prefs: Preferences = {
+      persona: personaKey,
+      interests: personaDefaults[personaKey] || ["models", "startups"],
+      visitDay: null,
+      whatsapp: null,
+      workingOn: null,
+      lookingFor: [],
+    };
+    setPreferences(prefs);
+  };
+
   const handleDayDone = (day: number | null) => {
     setVisitDay(day);
     setStep(4);
@@ -68,21 +91,20 @@ export default function Onboarding() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5 }}
-              className="text-center space-y-8"
+              className="text-center space-y-6"
             >
+              {/* Compact event header */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <p className="text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                  Feb 16–20, 2026 • Bharat Mandapam, New Delhi
+                <p className="text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">
+                  Feb 16–20, 2026 &bull; Bharat Mandapam, New Delhi
                 </p>
-                <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-heading leading-[0.9] tracking-tight">
-                  <span className="text-shimmer">INDIA AI</span>
-                  <br />
-                  <span className="text-foreground">IMPACT</span>
-                  <br />
+                <h1 className="text-4xl sm:text-6xl font-bold font-heading leading-[0.9] tracking-tight">
+                  <span className="text-shimmer">INDIA AI</span>{" "}
+                  <span className="text-foreground">IMPACT</span>{" "}
                   <motion.span
                     className="text-gradient-saffron"
                     initial={{ opacity: 0, y: 20 }}
@@ -94,34 +116,73 @@ export default function Onboarding() {
                 </h1>
               </motion.div>
 
+              {/* Subtitle */}
               <motion.p
-                className="text-lg text-muted-foreground max-w-md mx-auto"
+                className="text-base text-muted-foreground max-w-md mx-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 0.6 }}
               >
-                Your personalized guide to the world's largest AI summit.
-                <br />
-                Answer 3 quick questions to get started.
+                Pick your role for a personalized summit guide
               </motion.p>
 
-              <motion.button
-                onClick={() => setStep(1)}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-heading font-semibold text-lg hover:scale-105 transition-transform"
-                initial={{ opacity: 0, y: 20 }}
+              {/* WhatsApp Community CTA */}
+              <motion.a
+                href="https://chat.whatsapp.com/J35U2z7CELI84NfbDdiAjf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white font-heading font-semibold text-sm hover:bg-[#20BD5A] transition-colors"
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ delay: 0.7 }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                Get Started →
-              </motion.button>
+                <MessageCircle className="w-4 h-4" />
+                Join WhatsApp Community
+              </motion.a>
 
+              {/* Persona quick-start grid */}
               <motion.div
-                className="flex justify-center gap-6 flex-wrap pt-4"
+                className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                {personaKeys.map((key) => {
+                  const p = personas[key];
+                  return (
+                    <motion.button
+                      key={key}
+                      onClick={() => quickStart(key)}
+                      className="relative flex flex-col items-center gap-2 p-5 rounded-xl border-2 border-border bg-card hover:border-primary/60 hover:bg-primary/5 transition-all"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <span className="text-3xl">{p.icon}</span>
+                      <span className="text-sm font-medium text-center">{p.label}</span>
+                    </motion.button>
+                  );
+                })}
+              </motion.div>
+
+              {/* Customize link */}
+              <motion.button
+                onClick={() => setStep(1)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.4 }}
+                transition={{ delay: 1.0 }}
+              >
+                Customize my experience instead &rarr;
+              </motion.button>
+
+              {/* Stats strip */}
+              <motion.div
+                className="flex justify-center gap-6 flex-wrap pt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
               >
                 {["20+ Heads of State", "250K+ Visitors", "3,250+ Speakers", "$68B+ Invested"].map((s) => (
                   <span key={s} className="text-xs text-muted-foreground font-medium tracking-wide">{s}</span>
@@ -199,7 +260,7 @@ export default function Onboarding() {
                 })}
               </div>
               <div className="flex justify-between">
-                <button onClick={() => setStep(1)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
+                <button onClick={() => setStep(1)} className="text-sm text-muted-foreground hover:text-foreground">&larr; Back</button>
                 <motion.button
                   onClick={() => setStep(3)}
                   disabled={interests.length === 0}
@@ -207,7 +268,7 @@ export default function Onboarding() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  Continue →
+                  Continue &rarr;
                 </motion.button>
               </div>
             </motion.div>
@@ -246,7 +307,7 @@ export default function Onboarding() {
                 })}
               </div>
               <div className="flex justify-between">
-                <button onClick={() => setStep(2)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
+                <button onClick={() => setStep(2)} className="text-sm text-muted-foreground hover:text-foreground">&larr; Back</button>
                 <div className="flex gap-3">
                   <motion.button
                     onClick={() => handleDayDone(null)}
@@ -265,7 +326,7 @@ export default function Onboarding() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                     >
-                      Continue →
+                      Continue &rarr;
                     </motion.button>
                   )}
                 </div>
@@ -339,7 +400,7 @@ export default function Onboarding() {
               </div>
 
               <div className="flex justify-between pt-2">
-                <button onClick={() => setStep(3)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
+                <button onClick={() => setStep(3)} className="text-sm text-muted-foreground hover:text-foreground">&larr; Back</button>
                 <div className="flex gap-3">
                   <motion.button
                     onClick={() => finish({ skipProfile: true })}
@@ -355,7 +416,7 @@ export default function Onboarding() {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    Finish →
+                    Finish &rarr;
                   </motion.button>
                 </div>
               </div>

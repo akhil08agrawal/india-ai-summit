@@ -63,10 +63,23 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
+}
+
+/* Mobile tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+  }
+}
+
+/* Smooth momentum scrolling */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Grain texture overlay */

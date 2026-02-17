@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, RotateCcw } from "lucide-react";
 import { usePreferences } from "@/contexts/PreferencesContext";
 import { personas, interestTags, days, lookingForTags } from "@/data/summit";
+import AuthSection from "./AuthSection";
 
 const personaKeys = Object.keys(personas);
 
@@ -99,6 +100,9 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
 
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-4 space-y-6">
+              {/* Optional Auth */}
+              <AuthSection />
+
               {/* Current summary */}
               {personaInfo && (
                 <div className="p-4 rounded-xl bg-muted/50 border border-border space-y-1">
