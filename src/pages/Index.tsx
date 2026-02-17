@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/contexts/AuthContext";
 import { PreferencesProvider, usePreferences } from "@/contexts/PreferencesContext";
 import { BookmarksProvider } from "@/contexts/BookmarksContext";
 import Onboarding from "@/components/Onboarding";
@@ -9,11 +10,13 @@ function IndexContent() {
 }
 
 const Index = () => (
-  <PreferencesProvider>
-    <BookmarksProvider>
-      <IndexContent />
-    </BookmarksProvider>
-  </PreferencesProvider>
+  <AuthProvider>
+    <PreferencesProvider>
+      <BookmarksProvider>
+        <IndexContent />
+      </BookmarksProvider>
+    </PreferencesProvider>
+  </AuthProvider>
 );
 
 export default Index;

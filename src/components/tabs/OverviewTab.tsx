@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Bookmark, BookmarkCheck, Twitter, Linkedin } from "lucide-react";
 import {
@@ -8,13 +9,20 @@ import {
 import { usePreferences } from "@/contexts/PreferencesContext";
 import { useBookmarks, makeBookmarkId } from "@/contexts/BookmarksContext";
 import type { BookmarkEntry } from "@/contexts/BookmarksContext";
-import CountdownTimer from "@/components/CountdownTimer";
+import { useAuth } from "@/contexts/AuthContext";
+import LiveSessionBanner from "@/components/LiveSessionBanner";
 import PollsSection from "@/components/tabs/PollsSection";
 import ExperienceReviewForm from "@/components/ExperienceReviewForm";
+import OverviewAuthCard from "@/components/OverviewAuthCard";
 
 export default function OverviewTab() {
   const { preferences } = usePreferences();
   const { toggle, isBookmarked } = useBookmarks();
+  const { user, loading } = useAuth();
+  const [cardDismissed, setCardDismissed] = useState(
+    () => localStorage.getItem("auth-card-dismissed") === "true"
+  );
+  const showAuthCard = !loading && !user && !cardDismissed;
   const userInterests = preferences?.interests || [];
   const persona = preferences?.persona || "founder";
   const visitDay = preferences?.visitDay;
@@ -52,11 +60,16 @@ export default function OverviewTab() {
 
   return (
     <div className="space-y-10">
-      {/* Countdown Timer */}
-      <CountdownTimer />
+      {/* Live Session Banner */}
+      <LiveSessionBanner />
 
       {/* Polls */}
       <PollsSection />
+
+      {/* Auth Card */}
+      {showAuthCard && (
+        <OverviewAuthCard onDismiss={() => setCardDismissed(true)} />
+      )}
 
       {/* Welcome / For You header */}
       <section>

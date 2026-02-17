@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Bookmark, BookmarkCheck, CalendarPlus, Download } from "lucide-react";
+import { Bookmark, BookmarkCheck, CalendarPlus, Download, ChevronDown, ChevronUp } from "lucide-react";
 import { days, getScheduleForDay, getRecommendationLevel, interestTags, getTodaysDayId } from "@/data/summit";
 import type { RecommendationLevel } from "@/data/summit";
 import { usePreferences } from "@/contexts/PreferencesContext";
 import { useBookmarks, makeBookmarkId } from "@/contexts/BookmarksContext";
 import type { BookmarkEntry } from "@/contexts/BookmarksContext";
 import { downloadSingleICS, downloadICS } from "@/lib/ics";
+import { useTalkingPoints } from "@/hooks/useTalkingPoints";
+import type { TalkingPoint } from "@/hooks/useTalkingPoints";
 
 const recBadge: Record<Exclude<RecommendationLevel, null>, { label: string; className: string }> = {
   must_attend: { label: "🔥 Must Attend", className: "bg-green-500/15 text-green-700 dark:text-green-400 border border-green-500/30" },
@@ -19,8 +21,19 @@ const recOrder: Record<string, number> = { must_attend: 0, recommended: 1, explo
 export default function ScheduleTab() {
   const { preferences } = usePreferences();
   const { toggle, isBookmarked, getAll, count } = useBookmarks();
+  const { data: talkingPointsData } = useTalkingPoints();
   const defaultDay = preferences?.visitDay || getTodaysDayId() || 4;
   const [selectedDay, setSelectedDay] = useState<number | "saved">(defaultDay);
+
+  const talkingPointsByTag = useMemo(() => {
+    const map: Record<string, TalkingPoint> = {};
+    if (talkingPointsData) {
+      for (const tp of talkingPointsData) {
+        map[tp.tag_id] = tp;
+      }
+    }
+    return map;
+  }, [talkingPointsData]);
 
   const userInterests = preferences?.interests || [];
 
@@ -125,7 +138,7 @@ export default function ScheduleTab() {
             <div key={dayId} className="space-y-3">
               <h3 className="text-sm font-bold text-primary">{dayInfo?.date_short} ({dayInfo?.weekday}) — {dayInfo?.title}</h3>
               {items.map((item, i) => (
-                <SessionCard key={item.bookmarkId} item={item} i={i} userInterests={userInterests} toggle={toggle} isBookmarked={isBookmarked} />
+                <SessionCard key={item.bookmarkId} item={item} i={i} userInterests={userInterests} toggle={toggle} isBookmarked={isBookmarked} talkingPointsByTag={talkingPointsByTag} />
               ))}
             </div>
           );
@@ -141,16 +154,22 @@ export default function ScheduleTab() {
   );
 }
 
-function SessionCard({ item, i, userInterests, toggle, isBookmarked }: {
+function SessionCard({ item, i, userInterests, toggle, isBookmarked, talkingPointsByTag }: {
   item: { session: any; dayId: number; rec: RecommendationLevel; bookmarkId: string };
   i: number;
   userInterests: string[];
   toggle: (entry: BookmarkEntry) => void;
   isBookmarked: (id: string) => boolean;
+  talkingPointsByTag: Record<string, TalkingPoint>;
 }) {
   const { session, dayId, rec, bookmarkId } = item;
   const entry: BookmarkEntry = { dayId, time: session.time, title: session.session, venue: session.venue, speakers: session.speakers, tags: session.tags, is_highlight: session.is_highlight };
   const saved = isBookmarked(bookmarkId);
+  const [tpOpen, setTpOpen] = useState(false);
+
+  const relevantPoints = (session.tags || [])
+    .map((t: string) => talkingPointsByTag[t])
+    .filter(Boolean) as TalkingPoint[];
 
   return (
     <motion.div
@@ -201,6 +220,36 @@ function SessionCard({ item, i, userInterests, toggle, isBookmarked }: {
               </span>
             ) : null;
           })}
+        </div>
+      )}
+      {relevantPoints.length > 0 && (
+        <div className="mt-3">
+          <button
+            onClick={() => setTpOpen(!tpOpen)}
+            className="flex items-center gap-1.5 text-xs text-primary font-medium hover:text-primary/80 transition-colors"
+          >
+            Talking Points ({relevantPoints.length} {relevantPoints.length === 1 ? "topic" : "topics"})
+            {tpOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+          {tpOpen && (
+            <div className="mt-2 space-y-3">
+              {relevantPoints.map((tp) => {
+                const tag = interestTags.find(it => it.id === tp.tag_id);
+                return (
+                  <div key={tp.id} className="pl-3 border-l-2 border-primary/20">
+                    <p className="text-xs font-medium text-foreground">{tag?.icon} {tp.title}</p>
+                    <ul className="mt-1 space-y-1">
+                      {tp.points.map((point, pi) => (
+                        <li key={pi} className="text-xs text-muted-foreground pl-3 relative before:content-['•'] before:absolute before:left-0 before:text-primary/50">
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </motion.div>
