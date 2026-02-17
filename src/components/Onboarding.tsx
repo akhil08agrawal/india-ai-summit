@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { personas, interestTags, days } from "@/data/summit";
+import { personas, interestTags, days, lookingForTags } from "@/data/summit";
 import { usePreferences, Preferences } from "@/contexts/PreferencesContext";
 import BuiltByFooter from "./BuiltByFooter";
 
@@ -8,10 +8,13 @@ const personaKeys = Object.keys(personas);
 
 export default function Onboarding() {
   const { setPreferences } = usePreferences();
-  const [step, setStep] = useState(0); // 0=hero, 1=persona, 2=interests, 3=day
+  const [step, setStep] = useState(0); // 0=hero, 1=persona, 2=interests, 3=day, 4=profile
   const [persona, setPersona] = useState<string | null>(null);
   const [interests, setInterests] = useState<string[]>([]);
   const [visitDay, setVisitDay] = useState<number | null>(null);
+  const [whatsapp, setWhatsapp] = useState("");
+  const [workingOn, setWorkingOn] = useState("");
+  const [lookingFor, setLookingFor] = useState<string[]>([]);
 
   const toggleInterest = (id: string) => {
     setInterests((prev) =>
@@ -19,8 +22,27 @@ export default function Onboarding() {
     );
   };
 
-  const finish = (day: number | null) => {
-    setPreferences({ persona, interests, visitDay: day });
+  const toggleLookingFor = (id: string) => {
+    setLookingFor((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    );
+  };
+
+  const finish = (opts?: { skipProfile?: boolean }) => {
+    const prefs: Preferences = {
+      persona,
+      interests,
+      visitDay,
+      whatsapp: opts?.skipProfile ? null : whatsapp || null,
+      workingOn: opts?.skipProfile ? null : workingOn || null,
+      lookingFor: opts?.skipProfile ? [] : lookingFor,
+    };
+    setPreferences(prefs);
+  };
+
+  const handleDayDone = (day: number | null) => {
+    setVisitDay(day);
+    setStep(4);
   };
 
   const slideVariants = {
@@ -118,7 +140,7 @@ export default function Onboarding() {
               transition={{ duration: 0.4 }}
               className="space-y-6"
             >
-              <StepHeader step={1} total={3} title="Who are you?" />
+              <StepHeader step={1} total={4} title="Who are you?" />
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {personaKeys.map((key) => {
                   const p = personas[key];
@@ -154,7 +176,7 @@ export default function Onboarding() {
               transition={{ duration: 0.4 }}
               className="space-y-6"
             >
-              <StepHeader step={2} total={3} title="What interests you most?" subtitle="Select all that apply" />
+              <StepHeader step={2} total={4} title="What interests you most?" subtitle="Select all that apply" />
               <div className="grid grid-cols-2 gap-3">
                 {interestTags.map((tag) => {
                   const selected = interests.includes(tag.id);
@@ -201,7 +223,7 @@ export default function Onboarding() {
               transition={{ duration: 0.4 }}
               className="space-y-6"
             >
-              <StepHeader step={3} total={3} title="Which day are you visiting?" subtitle="Optional — skip to see everything" />
+              <StepHeader step={3} total={4} title="Which day are you visiting?" subtitle="Optional — skip to see everything" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {days.map((d) => {
                   const selected = visitDay === d.id;
@@ -227,7 +249,7 @@ export default function Onboarding() {
                 <button onClick={() => setStep(2)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
                 <div className="flex gap-3">
                   <motion.button
-                    onClick={() => finish(null)}
+                    onClick={() => handleDayDone(null)}
                     className="px-6 py-3 rounded-full border-2 border-border text-foreground font-heading font-semibold hover:border-muted-foreground/50"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
@@ -236,7 +258,7 @@ export default function Onboarding() {
                   </motion.button>
                   {visitDay && (
                     <motion.button
-                      onClick={() => finish(visitDay)}
+                      onClick={() => handleDayDone(visitDay)}
                       className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-semibold"
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
@@ -246,6 +268,95 @@ export default function Onboarding() {
                       Continue →
                     </motion.button>
                   )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {step === 4 && (
+            <motion.div
+              key="q4"
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+              className="space-y-6"
+            >
+              <StepHeader step={4} total={4} title="Connect with attendees" subtitle="Optional — help others find you" />
+
+              <div className="space-y-4">
+                {/* WhatsApp */}
+                <div>
+                  <label className="text-sm font-medium text-foreground block mb-1.5">WhatsApp Number</label>
+                  <div className="flex gap-2">
+                    <span className="flex items-center px-3 rounded-lg bg-muted text-sm text-muted-foreground border border-border">+91</span>
+                    <input
+                      type="tel"
+                      value={whatsapp}
+                      onChange={(e) => setWhatsapp(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                      placeholder="9876543210"
+                      className="flex-1 px-4 py-2.5 rounded-lg bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Shared in the attendee directory so others can reach you</p>
+                </div>
+
+                {/* Working on */}
+                <div>
+                  <label className="text-sm font-medium text-foreground block mb-1.5">What are you working on?</label>
+                  <textarea
+                    value={workingOn}
+                    onChange={(e) => setWorkingOn(e.target.value.slice(0, 200))}
+                    placeholder="e.g. Building an AI-powered legal assistant for Indian courts"
+                    rows={2}
+                    className="w-full px-4 py-2.5 rounded-lg bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                  />
+                </div>
+
+                {/* Looking for */}
+                <div>
+                  <label className="text-sm font-medium text-foreground block mb-1.5">What are you looking for?</label>
+                  <div className="flex flex-wrap gap-2">
+                    {lookingForTags.map((tag) => {
+                      const selected = lookingFor.includes(tag.id);
+                      return (
+                        <button
+                          key={tag.id}
+                          onClick={() => toggleLookingFor(tag.id)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                            selected
+                              ? "border-primary bg-primary/10 text-primary"
+                              : "border-border text-muted-foreground hover:border-muted-foreground/50"
+                          }`}
+                        >
+                          {tag.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-between pt-2">
+                <button onClick={() => setStep(3)} className="text-sm text-muted-foreground hover:text-foreground">← Back</button>
+                <div className="flex gap-3">
+                  <motion.button
+                    onClick={() => finish({ skipProfile: true })}
+                    className="px-6 py-3 rounded-full border-2 border-border text-foreground font-heading font-semibold hover:border-muted-foreground/50"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Skip
+                  </motion.button>
+                  <motion.button
+                    onClick={() => finish()}
+                    className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-semibold"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Finish →
+                  </motion.button>
                 </div>
               </div>
             </motion.div>

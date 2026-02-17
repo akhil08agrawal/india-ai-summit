@@ -5,6 +5,8 @@ import {
   companiesGlobal, companiesIndian, foundationModels, dealsAndInvestments
 } from "@/data/summit";
 import { usePreferences } from "@/contexts/PreferencesContext";
+import CountdownTimer from "@/components/CountdownTimer";
+import PollsSection from "@/components/tabs/PollsSection";
 
 export default function OverviewTab() {
   const { preferences } = usePreferences();
@@ -45,6 +47,12 @@ export default function OverviewTab() {
 
   return (
     <div className="space-y-10">
+      {/* Countdown Timer */}
+      <CountdownTimer />
+
+      {/* Polls */}
+      <PollsSection />
+
       {/* Welcome / For You header */}
       <section>
         <motion.div

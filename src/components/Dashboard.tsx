@@ -13,8 +13,12 @@ import PavilionsTab from "./tabs/PavilionsTab";
 import VenueTab from "./tabs/VenueTab";
 import SurvivalTab from "./tabs/SurvivalTab";
 import ProfilePanel from "./ProfilePanel";
-import BuiltByFooter from "./BuiltByFooter";
+
 import FloatingFeedback from "./FloatingFeedback";
+import AnnouncementsBanner from "./AnnouncementsBanner";
+import MeetupsTab from "./tabs/MeetupsTab";
+import PeopleTab from "./tabs/PeopleTab";
+import CommunityTab from "./tabs/CommunityTab";
 
 const tabs = [
   { id: "overview", label: "◉ Overview", icon: "◉" },
@@ -26,6 +30,9 @@ const tabs = [
   { id: "pavilions", label: "🌍 Pavilions", icon: "🌍" },
   { id: "venue", label: "🗺️ Venue", icon: "🗺️" },
   { id: "survival", label: "⚡ Tips", icon: "⚡" },
+  { id: "meetups", label: "🤝 Meetups", icon: "🤝" },
+  { id: "people", label: "👥 People", icon: "👥" },
+  { id: "community", label: "💬 Community", icon: "💬" },
 ];
 
 export default function Dashboard() {
@@ -135,6 +142,7 @@ export default function Dashboard() {
 
       {/* Content */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 py-6">
+        <AnnouncementsBanner />
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -152,10 +160,13 @@ export default function Dashboard() {
             {activeTab === "pavilions" && <PavilionsTab />}
             {activeTab === "venue" && <VenueTab />}
             {activeTab === "survival" && <SurvivalTab />}
+            {activeTab === "meetups" && <MeetupsTab />}
+            {activeTab === "people" && <PeopleTab />}
+            {activeTab === "community" && <CommunityTab />}
           </motion.div>
         </AnimatePresence>
       </main>
-      <BuiltByFooter />
+
       <FloatingFeedback />
 
       {/* Profile Panel */}

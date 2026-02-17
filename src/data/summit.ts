@@ -23,6 +23,16 @@ export const hackathons = summitData.hackathons as any[];
 export const sevenChakras = summitData.seven_chakras as any[];
 export const worldLeaders = summitData.world_leaders as string[];
 
+export const lookingForTags = [
+  { id: "cofounder", label: "Co-founder" },
+  { id: "investors", label: "Investors" },
+  { id: "hiring", label: "Hiring Talent" },
+  { id: "beta_testers", label: "Beta Testers" },
+  { id: "partnerships", label: "Partnerships" },
+  { id: "mentorship", label: "Mentorship" },
+  { id: "collaborators", label: "Technical Collaborators" },
+] as const;
+
 export function getScheduleForDay(dayNum: number) {
   return schedule[`day_${dayNum}`] || [];
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, RotateCcw } from "lucide-react";
 import { usePreferences } from "@/contexts/PreferencesContext";
-import { personas, interestTags, days } from "@/data/summit";
+import { personas, interestTags, days, lookingForTags } from "@/data/summit";
 
 const personaKeys = Object.keys(personas);
 
@@ -17,6 +17,9 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
   const [persona, setPersona] = useState(preferences?.persona || null);
   const [interests, setInterests] = useState<string[]>(preferences?.interests || []);
   const [visitDay, setVisitDay] = useState<number | null>(preferences?.visitDay || null);
+  const [whatsapp, setWhatsapp] = useState(preferences?.whatsapp || "");
+  const [workingOn, setWorkingOn] = useState(preferences?.workingOn || "");
+  const [lookingFor, setLookingFor] = useState<string[]>(preferences?.lookingFor || []);
 
   // Sync when panel opens
   useEffect(() => {
@@ -24,6 +27,9 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
       setPersona(preferences.persona);
       setInterests(preferences.interests);
       setVisitDay(preferences.visitDay);
+      setWhatsapp(preferences.whatsapp || "");
+      setWorkingOn(preferences.workingOn || "");
+      setLookingFor(preferences.lookingFor || []);
     }
   }, [open, preferences]);
 
@@ -33,9 +39,22 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
     );
   };
 
+  const toggleLookingFor = (id: string) => {
+    setLookingFor((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    );
+  };
+
   const handleSave = () => {
     if (persona && interests.length > 0) {
-      setPreferences({ persona, interests, visitDay });
+      setPreferences({
+        persona,
+        interests,
+        visitDay,
+        whatsapp: whatsapp || null,
+        workingOn: workingOn || null,
+        lookingFor,
+      });
       onClose();
     }
   };
@@ -177,6 +196,57 @@ export default function ProfilePanel({ open, onClose }: ProfilePanelProps) {
                   >
                     Show All Days
                   </button>
+                </div>
+              </section>
+
+              {/* WhatsApp */}
+              <section>
+                <h3 className="text-sm font-bold font-heading mb-3">WhatsApp Number</h3>
+                <div className="flex gap-2">
+                  <span className="flex items-center px-3 rounded-lg bg-muted text-sm text-muted-foreground border border-border">+91</span>
+                  <input
+                    type="tel"
+                    value={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                    placeholder="9876543210"
+                    className="flex-1 px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">Visible in attendee directory</p>
+              </section>
+
+              {/* Working on */}
+              <section>
+                <h3 className="text-sm font-bold font-heading mb-3">What are you working on?</h3>
+                <textarea
+                  value={workingOn}
+                  onChange={(e) => setWorkingOn(e.target.value.slice(0, 200))}
+                  placeholder="e.g. Building an AI-powered legal assistant"
+                  rows={2}
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                />
+              </section>
+
+              {/* Looking for */}
+              <section>
+                <h3 className="text-sm font-bold font-heading mb-3">Looking for</h3>
+                <div className="flex flex-wrap gap-2">
+                  {lookingForTags.map((tag) => {
+                    const selected = lookingFor.includes(tag.id);
+                    return (
+                      <button
+                        key={tag.id}
+                        onClick={() => toggleLookingFor(tag.id)}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                          selected
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border text-muted-foreground hover:border-muted-foreground/50"
+                        }`}
+                      >
+                        {tag.label}
+                      </button>
+                    );
+                  })}
                 </div>
               </section>
             </div>
